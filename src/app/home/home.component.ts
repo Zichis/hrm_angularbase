@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { faUserAlt } from '@fortawesome/free-solid-svg-icons';
 import { UsersService } from "../services/users.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-home',
@@ -11,13 +12,20 @@ export class HomeComponent implements OnInit {
   faUserAlt = faUserAlt;
   users: any = [];
 
-  constructor(private userService: UsersService) { }
+  constructor(
+    private userService: UsersService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     this.userService.getUsers().subscribe((users) => {
       this.users = users;
       console.log(this.users);
-    });
+    }, (error) => {
+      if (error.status === 401) {
+        this.router.navigate(['/login']);
+      }
+    })
   }
 
   /*getUsers(){
