@@ -24,7 +24,12 @@ export class LoginComponent implements OnInit {
       console.log(data);
       //console.log(data.token.original.token);
       localStorage.setItem('baseAppToken', data['token']['original']['token']);
-    });
+    }, (error) => {
+        if (error.status === 200) {
+          this.router.navigate(['/']);
+        }
+      }
+    );
   }
 
 }
