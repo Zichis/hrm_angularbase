@@ -1,3 +1,11 @@
-<p>This is where we create our dashboard!</p>
-<button class="bg-blue-500 py-2 px-4 text-white rounded">Hello</button>
-<fa-icon [icon]="faUserAlt"></fa-icon>
+<div class="wrapper" class="h-screen bg-dark-gray flex">
+    <div class="bg-blue-200 h-screen lg:block sidemenu" style="width: 320px;">
+        Side
+    </div>
+    <div class="flex-1 bg-grey-100 main-content">
+        <h2>Users</h2>
+        <p *ngFor="let user of users">
+            {{ user.email }}
+        </p>
+    </div>
+</div>

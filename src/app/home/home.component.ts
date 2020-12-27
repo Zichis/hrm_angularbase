@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { faUserAlt } from '@fortawesome/free-solid-svg-icons';
+import { UsersService } from "../services/users.service";
 
 @Component({
   selector: 'app-home',
@@ -8,10 +9,19 @@ import { faUserAlt } from '@fortawesome/free-solid-svg-icons';
 })
 export class HomeComponent implements OnInit {
   faUserAlt = faUserAlt;
+  users: any = [];
 
-  constructor() { }
+  constructor(private userService: UsersService) { }
 
   ngOnInit(): void {
+    this.userService.getUsers().subscribe((users) => {
+      this.users = users;
+      console.log(this.users);
+    });
   }
+
+  /*getUsers(){
+    this.users = this.userService.getUsers();
+  }*/
 
 }
