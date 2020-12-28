@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { LoginService } from '../services/login.service';
+import { Router } from "@angular/router"
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,11 @@ export class LoginComponent implements OnInit {
     password: ['']
   });
 
-  constructor(private fb: FormBuilder, private loginService: LoginService) { }
+  constructor(
+    private fb: FormBuilder,
+    private loginService: LoginService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
   }
@@ -24,10 +29,9 @@ export class LoginComponent implements OnInit {
       console.log(data);
       //console.log(data.token.original.token);
       localStorage.setItem('baseAppToken', data['token']['original']['token']);
+      this.router.navigate(['/']);
     }, (error) => {
-        if (error.status === 200) {
-          this.router.navigate(['/']);
-        }
+        //
       }
     );
   }
