@@ -8,7 +8,7 @@ import { catchError, retry } from 'rxjs/operators';
 })
 export class UsersService {
   authToken = localStorage.getItem('baseAppToken');
-  const headers = new HttpHeaders({
+  headers = new HttpHeaders({
     'Content-Type': 'application/json',
     'Authorization': `Bearer ${this.authToken}`
   });
