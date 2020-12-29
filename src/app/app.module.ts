@@ -11,6 +11,7 @@ import { from } from 'rxjs';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserCreateComponent } from './user-create/user-create.component';
+import { UserShowComponent } from './user-show/user-show.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { UserCreateComponent } from './user-create/user-create.component';
     HomeComponent,
     WelcomeComponent,
     LoginComponent,
-    UserCreateComponent
+    UserCreateComponent,
+    UserShowComponent
   ],
   imports: [
     BrowserModule,
