@@ -8,6 +8,10 @@ import { catchError, retry } from 'rxjs/operators';
 })
 export class UsersService {
   authToken = localStorage.getItem('baseAppToken');
+  const headers = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${this.authToken}`
+  });
 
   constructor(private http: HttpClient) { }
 
@@ -18,5 +22,17 @@ export class UsersService {
       'Authorization': `Bearer ${this.authToken}`
     });
     return this.http.get('http://localhost:4000/users', {'headers': headers});
+  }
+
+  createUser(data){
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${this.authToken}`
+    });
+    return this.http.post('http://localhost:4000/users', data, {'headers': headers});
+  }
+
+  getUser(id){
+    return this.http.get(`http://localhost:4000/users/${id}`, {'headers': this.headers});
   }
 }
