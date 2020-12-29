@@ -10,13 +10,15 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { from } from 'rxjs';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UserCreateComponent } from './user-create/user-create.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     WelcomeComponent,
-    LoginComponent
+    LoginComponent,
+    UserCreateComponent
   ],
   imports: [
     BrowserModule,
