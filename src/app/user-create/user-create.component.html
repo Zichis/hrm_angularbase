@@ -1,1 +1,14 @@
-<p>user-create works!</p>
+<div class="p-5">
+  <h2>Add user</h2>
+  <form [formGroup]="createForm" (ngSubmit)="onCreate()">
+    <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+    <input type="text" class="border-solid border-2 border-light-blue-500 p-1" formControlName="email" placeholder="Enter email" required>
+    <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+    <input type="password" class="border-solid border-2 border-light-blue-500 p-1" formControlName="password" placeholder="Enter password" required>
+    <label for="first_name" class="block text-sm font-medium text-gray-700">First name</label>
+    <input class="border-solid border-2 border-light-blue-500 p-1" type="text" formControlName="first_name" placeholder="Enter first name" required>
+    <label for="last_name" class="block text-sm font-medium text-gray-700">Last name</label>
+    <input type="text" class="border-solid border-2 border-light-blue-500 p-1" formControlName="last_name" placeholder="Enter last name" required>
+    <button type="submit" class="block mt-5 bg-gray-600 py-1 px-3 text-gray-100 hover:bg-gray-800" name="button">Add</button>
+  </form>
+</div>
