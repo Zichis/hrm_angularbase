@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faUserAlt } from '@fortawesome/free-solid-svg-icons';
+import { faUserAlt, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import { UsersService } from "../services/users.service";
 import { Router } from "@angular/router";
 
@@ -9,7 +9,8 @@ import { Router } from "@angular/router";
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  faUserAlt = faUserAlt;
+  userAlt = faUserAlt;
+  userPlus = faUserPlus;
   users: any = [];
 
   constructor(
