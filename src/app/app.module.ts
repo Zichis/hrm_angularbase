@@ -12,6 +12,7 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserCreateComponent } from './user-create/user-create.component';
 import { UserShowComponent } from './user-show/user-show.component';
+import { UserUpdateComponent } from './user-update/user-update.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { UserShowComponent } from './user-show/user-show.component';
     WelcomeComponent,
     LoginComponent,
     UserCreateComponent,
-    UserShowComponent
+    UserShowComponent,
+    UserUpdateComponent
   ],
   imports: [
     BrowserModule,
