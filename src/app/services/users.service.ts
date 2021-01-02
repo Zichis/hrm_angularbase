@@ -35,4 +35,12 @@ export class UsersService {
   getUser(id){
     return this.http.get(`http://localhost:4000/users/${id}`, {'headers': this.headers});
   }
+
+  updateUser(data, id){
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${this.authToken}`
+    });
+    return this.http.put(`http://localhost:4000/users/${id}`, data, {'headers': headers});
+  }
 }
