@@ -24,7 +24,8 @@ export class HomeComponent implements OnInit {
       console.log(this.users);
     }, (error) => {
       if (error.status === 401) {
-        this.router.navigate(['/login']);
+        //this.router.navigate(['/login']);
+        window.location.href = "/login";
       }
     })
   }
