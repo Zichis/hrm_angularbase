@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,10 @@ export class UsersService {
     'Authorization': `Bearer ${this.authToken}`
   });
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private jwtHelper: JwtHelperService
+  ) { }
 
   getUsers(){
     console.log(this.authToken);
@@ -42,5 +46,9 @@ export class UsersService {
       'Authorization': `Bearer ${this.authToken}`
     });
     return this.http.put(`http://localhost:4000/users/${id}`, data, {'headers': headers});
+  }
+
+  public isAuthenticated(): boolean {
+    return !this.jwtHelper.isTokenExpired(this.authToken);
   }
 }
