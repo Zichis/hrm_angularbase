@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
     email: [''],
     password: ['']
   });
+  errorMessage = '';
 
   constructor(
     private fb: FormBuilder,
@@ -31,7 +32,7 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('baseAppToken', data['token']['original']['token']);
       this.router.navigate(['/']);
     }, (error) => {
-        //
+        this.errorMessage = error['error']['message'];
       }
     );
   }
