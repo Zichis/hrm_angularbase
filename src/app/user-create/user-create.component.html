@@ -3,12 +3,20 @@
   <form [formGroup]="createForm" (ngSubmit)="onCreate()">
     <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
     <input type="text" class="border-solid border-2 border-light-blue-500 p-1" formControlName="email" placeholder="Enter email" required>
+    <p class="text-red-400">{{ emailError }}</p>
+    <span *ngIf="email.invalid && email.touched" class="text-red-400">Something wrong</span>
     <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
     <input type="password" class="border-solid border-2 border-light-blue-500 p-1" formControlName="password" placeholder="Enter password" required>
+    <p class="text-red-400">{{ passwordError }}</p>
+    <span *ngIf="password.invalid && password.touched" class="text-red-400">Wrong password input</span>
     <label for="first_name" class="block text-sm font-medium text-gray-700">First name</label>
     <input class="border-solid border-2 border-light-blue-500 p-1" type="text" formControlName="first_name" placeholder="Enter first name" required>
+    <p class="text-red-400">{{ firstNameError }}</p>
+    <span *ngIf="firstName.invalid && firstName.touched" class="text-red-400">Wrong first name input</span>
     <label for="last_name" class="block text-sm font-medium text-gray-700">Last name</label>
     <input type="text" class="border-solid border-2 border-light-blue-500 p-1" formControlName="last_name" placeholder="Enter last name" required>
-    <button type="submit" class="block mt-5 bg-gray-600 py-1 px-3 text-gray-100 hover:bg-gray-800" name="button">Add</button>
+    <p class="text-red-400">{{ lastNameError }}</p>
+    <span *ngIf="lastName.invalid && lastName.touched" class="text-red-400">Wrong last name input</span>
+    <button type="submit" [disabled]="createForm.invalid" class="block mt-5 bg-gray-600 py-1 px-3 text-gray-100 hover:bg-gray-800" name="button">Add</button>
   </form>
 </div>

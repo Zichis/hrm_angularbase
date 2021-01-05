@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { UsersService } from '../services/users.service';
 import { Router } from "@angular/router";
 
@@ -10,11 +10,15 @@ import { Router } from "@angular/router";
 })
 export class UserCreateComponent implements OnInit {
   createForm = this.fb.group({
-    email: '',
-    password: '',
-    first_name: '',
-    last_name: ''
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', [Validators.required]],
+    first_name: ['', [Validators.required]],
+    last_name: ['', [Validators.required]]
   });
+  emailError = '';
+  passwordError = '';
+  firstNameError = '';
+  lastNameError = '';
 
   constructor(
     private fb: FormBuilder,
@@ -25,13 +29,24 @@ export class UserCreateComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  get email(){ return this.createForm.get('email'); }
+
+  get password(){ return this.createForm.get('password'); }
+
+  get firstName(){ return this.createForm.get('first_name'); }
+
+  get lastName(){ return this.createForm.get('last_name'); }
+
   onCreate(): void {
     console.log(this.createForm.value);
     this.usersService.createUser(this.createForm.value).subscribe((data) => {
       console.log(data);
       this.router.navigate(['/']);
     }, (error) => {
-        //
+        this.emailError = error['error']['email'];
+        this.passwordError = error['error']['password'];
+        this.firstNameError = error['error']['first_name'];
+        this.lastNameError = error['error']['last_name'];
       }
     );
   }
