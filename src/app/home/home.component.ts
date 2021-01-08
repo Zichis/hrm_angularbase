@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faUserAlt, faUserPlus } from '@fortawesome/free-solid-svg-icons';
+import { faUserAlt, faUserPlus, faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { UsersService } from "../services/users.service";
 import { Router } from "@angular/router";
 
@@ -11,6 +11,8 @@ import { Router } from "@angular/router";
 export class HomeComponent implements OnInit {
   userAlt = faUserAlt;
   userPlus = faUserPlus;
+  edit = faEdit;
+  trash = faTrash;
   users: any = [];
 
   constructor(
@@ -25,6 +27,16 @@ export class HomeComponent implements OnInit {
     }, (error) => {
       if (error.status === 401) {
         //this.router.navigate(['/login']);
+        window.location.href = "/login";
+      }
+    })
+  }
+
+  onDelete(id){
+    this.userService.deleteUser(id).subscribe((response) => {
+      this.users = response['data']['users'];
+    }, (error) => {
+      if (error.status === 401) {
         window.location.href = "/login";
       }
     })
