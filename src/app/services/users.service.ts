@@ -40,6 +40,10 @@ export class UsersService {
     return this.http.get(`http://localhost:4000/users/${id}`, {'headers': this.headers});
   }
 
+  deleteUser(id){
+    return this.http.delete(`http://localhost:4000/users/${id}`, {'headers': this.headers});
+  }
+
   updateUser(data, id){
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
