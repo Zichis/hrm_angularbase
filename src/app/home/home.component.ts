@@ -42,6 +42,10 @@ export class HomeComponent implements OnInit {
     })
   }
 
+  setInitial(user) {
+    return user.first_name.charAt(0).toUpperCase();
+  }
+
   /*getUsers(){
     this.users = this.userService.getUsers();
   }*/
