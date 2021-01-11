@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faUserAlt, faUserPlus, faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faUserAlt, faUserPlus, faEdit, faTrash, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import { UsersService } from "../services/users.service";
 import { Router } from "@angular/router";
 
@@ -13,7 +13,10 @@ export class HomeComponent implements OnInit {
   userPlus = faUserPlus;
   edit = faEdit;
   trash = faTrash;
+  infoCircle = faInfoCircle;
   users: any = [];
+  deleteClicked = false;
+  user;
 
   constructor(
     private userService: UsersService,
@@ -32,9 +35,24 @@ export class HomeComponent implements OnInit {
     })
   }
 
-  onDelete(id){
+  onDelete(id) {
+    this.deleteClicked = true;
+    this.userService.getUser(id).subscribe((data) => {
+      this.user = data;
+    }, (error) => {
+        //
+      }
+    );
+  }
+
+  onCancelDelete() {
+    this.deleteClicked = false;
+  }
+
+  onConfirmDelete(id) {
     this.userService.deleteUser(id).subscribe((response) => {
       this.users = response['data']['users'];
+      this.deleteClicked = false;
     }, (error) => {
       if (error.status === 401) {
         window.location.href = "/login";
