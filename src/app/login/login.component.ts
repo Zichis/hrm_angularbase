@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { LoginService } from '../services/login.service';
 import { Router } from "@angular/router";
 
@@ -10,8 +10,8 @@ import { Router } from "@angular/router";
 })
 export class LoginComponent implements OnInit {
   loginForm = this.fb.group({
-    email: [''],
-    password: ['']
+    email: ['', [Validators.required]],
+    password: ['', [Validators.required]]
   });
   errorMessage = '';
 
@@ -23,6 +23,10 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  get email(){ return this.loginForm.get('email'); }
+
+  get password(){ return this.loginForm.get('password'); }
 
   onLogin(): void {
     console.log(this.loginForm.value);
