@@ -16,7 +16,9 @@ export class HomeComponent implements OnInit {
   infoCircle = faInfoCircle;
   users: any = [];
   deleteClicked = false;
-  user;
+  user:any;
+  userLetter:any;
+  dropdownClicked = false;
 
   constructor(
     private userService: UsersService,
@@ -32,7 +34,16 @@ export class HomeComponent implements OnInit {
         //this.router.navigate(['/login']);
         window.location.href = "/login";
       }
-    })
+    });
+    this.userService.getCurrentUser().subscribe((response) => {
+      this.user = response['data']['user'];
+      this.userLetter = this.user.first_name.charAt(0).toUpperCase();
+    }, (error) => {
+      if (error.status === 401) {
+        //this.router.navigate(['/login']);
+        window.location.href = "/login";
+      }
+    });
   }
 
   onDelete(id) {
@@ -43,6 +54,10 @@ export class HomeComponent implements OnInit {
         //
       }
     );
+  }
+
+  onDropdownClick() {
+    this.dropdownClicked = !this.dropdownClicked;
   }
 
   onCancelDelete() {
@@ -62,6 +77,17 @@ export class HomeComponent implements OnInit {
 
   setInitial(user) {
     return user.first_name.charAt(0).toUpperCase();
+  }
+
+  onSignOut() {
+    this.userService.signOut().subscribe((response) => {
+      localStorage.removeItem('baseAppToken');
+      window.location.href = "/login";
+    }, (error) => {
+      if (error.status === 401) {
+        window.location.href = "/login";
+      }
+    })
   }
 
   /*getUsers(){
