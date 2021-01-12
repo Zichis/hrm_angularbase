@@ -40,6 +40,10 @@ export class UsersService {
     return this.http.get(`http://localhost:4000/users/${id}`, {'headers': this.headers});
   }
 
+  getCurrentUser(){
+    return this.http.get(`http://localhost:4000/current-user`, {'headers': this.headers});
+  }
+
   deleteUser(id){
     return this.http.delete(`http://localhost:4000/users/${id}`, {'headers': this.headers});
   }
