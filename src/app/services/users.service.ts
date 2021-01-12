@@ -48,6 +48,10 @@ export class UsersService {
     return this.http.delete(`http://localhost:4000/users/${id}`, {'headers': this.headers});
   }
 
+  signOut(){
+    return this.http.get(`http://localhost:4000/logout`, {'headers': this.headers});
+  }
+
   updateUser(data, id){
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
