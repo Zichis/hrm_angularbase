@@ -27,15 +27,6 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.userService.getUsers().subscribe((users) => {
-      this.users = users;
-      console.log(this.users);
-    }, (error) => {
-      if (error.status === 401) {
-        //this.router.navigate(['/login']);
-        window.location.href = "/login";
-      }
-    });
     this.userService.getCurrentUser().subscribe((response) => {
       this.user = response['data']['user'];
       this.userLetter = this.user.first_name.charAt(0).toUpperCase();
@@ -47,37 +38,8 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  onDelete(id) {
-    this.deleteClicked = true;
-    this.userService.getUser(id).subscribe((data) => {
-      this.user = data;
-    }, (error) => {
-        //
-      }
-    );
-  }
-
   onDropdownClick() {
     this.dropdownClicked = !this.dropdownClicked;
-  }
-
-  onCancelDelete() {
-    this.deleteClicked = false;
-  }
-
-  onConfirmDelete(id) {
-    this.userService.deleteUser(id).subscribe((response) => {
-      this.users = response['data']['users'];
-      this.deleteClicked = false;
-    }, (error) => {
-      if (error.status === 401) {
-        window.location.href = "/login";
-      }
-    })
-  }
-
-  setInitial(user) {
-    return user.first_name.charAt(0).toUpperCase();
   }
 
   onSignOut() {
@@ -89,6 +51,11 @@ export class HomeComponent implements OnInit {
         window.location.href = "/login";
       }
     })
+  }
+
+  // Getters
+  setDeleteClicked(status: boolean) {
+    this.deleteClicked = status;
   }
 
   /*getUsers(){
