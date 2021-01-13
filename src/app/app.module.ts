@@ -14,6 +14,7 @@ import { UserCreateComponent } from './user-create/user-create.component';
 import { UserShowComponent } from './user-show/user-show.component';
 import { UserUpdateComponent } from './user-update/user-update.component';
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
     LoginComponent,
     UserCreateComponent,
     UserShowComponent,
-    UserUpdateComponent
+    UserUpdateComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
