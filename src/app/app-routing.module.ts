@@ -7,9 +7,12 @@ import { UserCreateComponent } from './user-create/user-create.component';
 import { UserShowComponent } from './user-show/user-show.component';
 import { UserUpdateComponent } from "./user-update/user-update.component";
 import { AuthGuard } from "./auth.guard";
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
-  {'path': '', component: HomeComponent, canActivate: [AuthGuard]},
+  {'path': '', component: HomeComponent, canActivate: [AuthGuard], children: [
+    {'path': '', component: DashboardComponent}
+  ]},
   {'path': 'welcome', component: WelcomeComponent},
   {'path': 'login', component: LoginComponent},
   {'path': 'users/create', component: UserCreateComponent, canActivate: [AuthGuard]},
