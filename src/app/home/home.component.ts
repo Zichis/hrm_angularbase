@@ -19,6 +19,7 @@ export class HomeComponent implements OnInit {
   user:any;
   userLetter:any;
   dropdownClicked = false;
+  today: number = Date.now();
 
   constructor(
     private userService: UsersService,

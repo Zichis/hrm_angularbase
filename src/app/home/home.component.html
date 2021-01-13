@@ -1,10 +1,18 @@
-<div class="wrapper" class="h-screen bg-dark-gray flex" (click)="onClickBody()">
-    <div class="bg-gray-800 h-screen lg:block sidemenu" style="width: 320px;">
-        Side
+<div class="wrapper" class="h-screen bg-dark-gray flex">
+    <div class="bg-gray-700 h-screen lg:block sidemenu" style="width: 320px;">
+        <div>
+          <h1 class="bg-black bg-opacity-20 p-5 text-center text-lg font-bold text-gray-100">COMPANY</h1>
+        </div>
+        <div class="mt-5">
+          <a href="#" class="flex py-2 px-10 text-blue-400 hover:text-white">
+            <fa-icon [icon]="infoCircle"></fa-icon>
+            <span class="pl-2">DASHBOARD</span>
+          </a>
+        </div>
     </div>
     <div class="flex-1 bg-grey-100 main-content">
       <div class="p-5 bg-gray-50 border-b-2 border-fuchsia-600 flex justify-between">
-        <h3 class="text-lg font-bold text-gray-700">Company</h3>
+        <h3 class="text-lg text-gray-700">{{ today|date:'EEEE, LLLL d' }}</h3>
         <div>
           <!--<div class="flex h-7 w-7 rounded-full bg-blue-400 text-white justify-center items-center">
             {{ userLetter }}
