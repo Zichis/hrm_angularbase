@@ -1,0 +1,53 @@
+<div *ngIf="deleteClicked" class="bg-blue-100 mb-2 px-5 py-2 rounded border border-blue-500 text-blue-900">
+  <fa-icon [icon]="infoCircle"></fa-icon> Delete {{ user?.first_name }}'s account?
+  <button class="bg-red-400 py-1 px-2 text-white text-sm rounded hover:bg-red-600 focus:outline-none" type="button" name="button" (click)="onConfirmDelete(user?.id)">Confirm</button>&nbsp;
+  <button class="bg-gray-400 py-1 px-2 text-white text-sm rounded hover:bg-gray-600 focus:outline-none" type="button" name="button" (click)="onCancelDelete()">Cancel</button>
+</div>
+<div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+  <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+    <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+      <table class="min-w-full divide-y divide-gray-200">
+        <thead class="bg-gray-50">
+          <tr>
+            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              User
+            </th>
+            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              Email
+            </th>
+            <th scope="col" class="relative px-6 py-3 text-right">
+              <a routerLink="/users/create" class="inline-block bg-gray-600 hover:bg-gray-800 py-1 px-3 text-white rounded shadow-md"><fa-icon [icon]="userPlus"></fa-icon></a>
+            </th>
+          </tr>
+        </thead>
+        <tbody class="bg-white divide-y divide-gray-200">
+          <tr *ngFor="let user of users">
+            <td class="px-6 py-4 whitespace-nowrap">
+              <div class="flex items-center">
+                <div class="flex h-10 w-10 rounded-full bg-blue-400 text-white justify-center items-center">
+                  {{ setInitial(user) }}
+                </div>
+                <div class="ml-4">
+                  <div class="text-sm font-medium">
+                    <a routerLink="/users/{{ user.id }}" class="text-gray-500 hover:text-gray-600">{{ user.first_name }}&nbsp;{{ user.last_name }}</a>
+                  </div>
+                </div>
+              </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap">
+              <div class="flex items-center">
+                  <div class="text-sm font-medium text-gray-900">
+                    {{ user.email }}
+                  </div>
+              </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+              <a routerLink="/users/{{ user.id }}/edit" class="text-blue-400 hover:text-blue-700"><fa-icon [icon]="edit"></fa-icon></a>&nbsp;
+              <button (click)="onDelete(user.id)" class="text-red-400 hover:text-red-700"><fa-icon [icon]="trash"></fa-icon></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
