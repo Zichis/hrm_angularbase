@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faTh } from '@fortawesome/free-solid-svg-icons';
+import { faTh, faUsers } from '@fortawesome/free-solid-svg-icons';
 import { UsersService } from "../services/users.service";
 import { Router } from "@angular/router";
 
@@ -10,6 +10,7 @@ import { Router } from "@angular/router";
 })
 export class HomeComponent implements OnInit {
   th = faTh;
+  usersIcon = faUsers;
   users: any = [];
   deleteClicked = false;
   user:any;
