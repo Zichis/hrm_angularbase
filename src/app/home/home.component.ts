@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faUserAlt, faUserPlus, faEdit, faTrash, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
+import { faTh } from '@fortawesome/free-solid-svg-icons';
 import { UsersService } from "../services/users.service";
 import { Router } from "@angular/router";
 
@@ -9,11 +9,7 @@ import { Router } from "@angular/router";
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  userAlt = faUserAlt;
-  userPlus = faUserPlus;
-  edit = faEdit;
-  trash = faTrash;
-  infoCircle = faInfoCircle;
+  th = faTh;
   users: any = [];
   deleteClicked = false;
   user:any;
