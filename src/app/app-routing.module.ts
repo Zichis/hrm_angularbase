@@ -8,10 +8,12 @@ import { UserShowComponent } from './user-show/user-show.component';
 import { UserUpdateComponent } from "./user-update/user-update.component";
 import { AuthGuard } from "./auth.guard";
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { UsersComponent } from './users/users.component';
 
 const routes: Routes = [
   {'path': '', component: HomeComponent, canActivate: [AuthGuard], children: [
-    {'path': '', component: DashboardComponent}
+    {'path': '', component: DashboardComponent},
+    {'path': 'users', component: UsersComponent}
   ]},
   {'path': 'welcome', component: WelcomeComponent},
   {'path': 'login', component: LoginComponent},
