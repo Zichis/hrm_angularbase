@@ -9,6 +9,7 @@ import { UserUpdateComponent } from "./user-update/user-update.component";
 import { AuthGuard } from "./auth.guard";
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UsersComponent } from './users/users.component';
+import { OnboardingComponent } from './onboarding/onboarding.component';
 
 const routes: Routes = [
   {'path': '', component: HomeComponent, canActivate: [AuthGuard], children: [
@@ -19,6 +20,7 @@ const routes: Routes = [
     {'path': 'users/:id/edit', component: UserUpdateComponent, canActivate: [AuthGuard]}
   ]},
   {'path': 'welcome', component: WelcomeComponent},
+  {'path': 'onboarding', component: OnboardingComponent},
   {'path': 'login', component: LoginComponent},
 ];
 
