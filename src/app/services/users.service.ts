@@ -63,4 +63,8 @@ export class UsersService {
   public isAuthenticated(): boolean {
     return !this.jwtHelper.isTokenExpired(this.authToken);
   }
+
+  numberOfUsers() {
+      return this.http.get(`http://localhost:4000/users/count`);
+  }
 }
