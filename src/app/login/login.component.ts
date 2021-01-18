@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { LoginService } from '../services/login.service';
 import { Router } from "@angular/router";
+import { UsersService } from '../services/users.service';
 
 @Component({
   selector: 'app-login',
@@ -14,14 +15,23 @@ export class LoginComponent implements OnInit {
     password: ['', [Validators.required]]
   });
   errorMessage = '';
+  ready: boolean = false;
 
   constructor(
     private fb: FormBuilder,
     private loginService: LoginService,
-    private router: Router
-  ) { }
+    private router: Router,
+    private usersService: UsersService
+  ) {
+  }
 
   ngOnInit(): void {
+    this.usersService.numberOfUsers().subscribe((response) => {
+      if (response['data']['users'] == 0) {
+        window.location.href = "/onboarding";
+      }
+      this.ready = true;
+    });
   }
 
   get email(){ return this.loginForm.get('email'); }
