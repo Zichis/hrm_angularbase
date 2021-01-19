@@ -16,7 +16,12 @@
     </div>
     <div class="flex-1 bg-grey-100 main-content">
       <div class="p-5 bg-gray-50 border-b-2 border-fuchsia-600 flex justify-between">
-        <h3 class="text-lg text-gray-700">{{ today|date:'EEEE, LLLL d' }}</h3>
+        <div class="flex">
+          <button class="mr-5 px-2 border border-1" type="button" name="button">
+            <fa-icon [icon]="menuIcon"></fa-icon>
+          </button>
+          <h3 class="text-lg text-gray-700">{{ today|date:'EEEE, LLLL d' }}</h3>
+        </div>
         <div>
           <div class="ml-3 relative">
           <div>
