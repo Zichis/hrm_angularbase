@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
   userLetter:any;
   dropdownClicked = false;
   today: number = Date.now();
+  sideMenuOpen = true;
 
   constructor(
     private userService: UsersService,
@@ -49,6 +50,11 @@ export class HomeComponent implements OnInit {
         window.location.href = "/login";
       }
     })
+  }
+
+  toggleSidemenu() {
+    console.log("Working");
+    this.sideMenuOpen = !this.sideMenuOpen;
   }
 
   // Getters
