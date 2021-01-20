@@ -1,5 +1,5 @@
 <div class="wrapper" class="h-screen bg-dark-gray flex">
-    <div class="bg-gray-700 h-screen lg:block sidemenu" *ngIf="sideMenuOpen" style="width: 320px;">
+    <div class="bg-gray-700 h-screen lg:block sidemenu" [ngClass]="sideMenuOpen ? 'open' : 'close'">
         <div>
           <h1 class="bg-black bg-opacity-20 border-b-2 border-gray-600 p-5 text-center text-lg font-bold text-gray-100">COMPANY</h1>
         </div>
@@ -17,7 +17,7 @@
     <div class="flex-1 bg-grey-100 main-content">
       <div class="p-5 bg-gray-50 border-b-2 border-fuchsia-600 flex justify-between">
         <div class="flex">
-          <button class="mr-5 px-2 border border-1" type="button" (click)="toggleSidemenu()">
+          <button class="mr-5 px-2 border border-1 hover:bg-gray-200" type="button" (click)="toggleSidemenu()">
             <fa-icon [icon]="menuIcon"></fa-icon>
           </button>
           <h3 class="text-lg text-gray-700">{{ today|date:'EEEE, LLLL d' }}</h3>
