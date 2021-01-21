@@ -3,6 +3,9 @@
         <div>
           <h1 class="bg-black bg-opacity-20 border-b-2 border-gray-600 p-5 text-center text-lg font-bold text-gray-100">COMPANY</h1>
         </div>
+        <div class="p-2 text-right md:hidden">
+          <button class="bg-red-400 text-white px-1 rounded hover:bg-red-600" type="button" (click)="onCloseSideMenu()">Close</button>
+        </div>
         <div class="mt-5">
           <a routerLink="/" routerLinkActive="text-blue-400" [routerLinkActiveOptions]="{exact: true}" class="flex py-2 px-10 text-white hover:text-blue-400">
             <fa-icon [icon]="th"></fa-icon>
@@ -40,7 +43,7 @@
         </div>
         </div>
       </div>
-      <div class="p-5 flex-1" (click)="onBodyClick()">
+      <div class="p-5 flex-1 md:p-10" (click)="onBodyClick()">
         <div class="flex flex-col">
           <router-outlet></router-outlet>
         </div>
