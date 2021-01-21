@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
   userLetter:any;
   dropdownClicked = false;
   today: number = Date.now();
-  sideMenuOpen = true;
+  sideMenuOpen = false;
 
   constructor(
     private userService: UsersService,
@@ -53,8 +53,12 @@ export class HomeComponent implements OnInit {
   }
 
   toggleSidemenu() {
-    console.log("Working");
+    this.dropdownClicked = false;
     this.sideMenuOpen = !this.sideMenuOpen;
+  }
+
+  onBodyClick() {
+    this.dropdownClicked = false;
   }
 
   // Getters
