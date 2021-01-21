@@ -61,6 +61,10 @@ export class HomeComponent implements OnInit {
     this.dropdownClicked = false;
   }
 
+  onCloseSideMenu() {
+    this.sideMenuOpen = false;
+  }
+
   // Getters
   setDeleteClicked(status: boolean) {
     this.deleteClicked = status;
