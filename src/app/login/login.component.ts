@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { LoginService } from '../services/login.service';
-import { Router } from "@angular/router";
 import { UsersService } from '../services/users.service';
 
 @Component({
@@ -20,7 +19,6 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private loginService: LoginService,
-    private router: Router,
     private usersService: UsersService
   ) {
   }
@@ -44,7 +42,7 @@ export class LoginComponent implements OnInit {
       console.log(data);
       //console.log(data.token.original.token);
       localStorage.setItem('baseAppToken', data['token']['original']['token']);
-      this.router.navigate(['/']);
+      window.location.href = "/";
     }, (error) => {
         this.errorMessage = error['error']['message'];
       }
