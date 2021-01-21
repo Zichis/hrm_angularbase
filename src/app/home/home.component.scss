@@ -1,14 +1,17 @@
 .sidemenu {
   width: 320px;
+  left: -320px;
   transition: all 200ms linear 200ms;
 }
 
 .open {
   margin-left: 0;
+  left: 0
 }
 
 .close {
   margin-left: -320px;
+  left: -320px;
 }
 
 /* Extra small devices (phones, 600px and down) */
