@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
+import { UsersService } from '../services/users.service';
 
 @Component({
   selector: 'app-onboarding',
@@ -6,10 +8,40 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./onboarding.component.scss']
 })
 export class OnboardingComponent implements OnInit {
+  createAccountForm = this.fb.group({
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', [Validators.required]],
+    first_name: ['', [Validators.required]],
+    last_name: ['', [Validators.required]]
+  });
+  emailError = '';
+  passwordError = '';
+  firstNameError = '';
+  lastNameError = '';
 
-  constructor() { }
+  constructor(private fb: FormBuilder, private usersService: UsersService) { }
 
   ngOnInit(): void {
+  }
+
+  get email(){ return this.createAccountForm.get('email'); }
+
+  get password(){ return this.createAccountForm.get('password'); }
+
+  get firstName(){ return this.createAccountForm.get('first_name'); }
+
+  get lastName(){ return this.createAccountForm.get('last_name'); }
+
+  onCreateAccount() {
+    this.usersService.onboardUser(this.createAccountForm.value).subscribe((data) => {
+      window.location.href = "/";
+    }, (error) => {
+        this.emailError = error['error']['email'];
+        this.passwordError = error['error']['password'];
+        this.firstNameError = error['error']['first_name'];
+        this.lastNameError = error['error']['last_name'];
+      }
+    );
   }
 
 }
