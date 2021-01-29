@@ -60,6 +60,13 @@ export class UsersService {
     return this.http.put(`http://localhost:4000/users/${id}`, data, {'headers': headers});
   }
 
+  onboardUser(data){
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+    return this.http.post('http://localhost:4000/onboard', data, {'headers': headers});
+  }
+
   public isAuthenticated(): boolean {
     return !this.jwtHelper.isTokenExpired(this.authToken);
   }
