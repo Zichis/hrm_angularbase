@@ -1,17 +1,10 @@
 .wrapper{
-  background: url("https://images.pexels.com/photos/5699480/pexels-photo-5699480.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+  background: url("https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500");
   background-size: cover;
   background-repeat: no-repeat;
   font-family: 'Source Sans Pro', sans-serif;
+}
 
-  &:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-image: linear-gradient(to bottom right,#002f4b,#dc4225);
-    opacity: .6;
-  }
+.overlay {
+  background: rgba(0, 0, 0, 0.4);
 }
