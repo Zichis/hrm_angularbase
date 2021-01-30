@@ -18,10 +18,17 @@ export class OnboardingComponent implements OnInit {
   passwordError = '';
   firstNameError = '';
   lastNameError = '';
+  ready: boolean = false;
 
   constructor(private fb: FormBuilder, private usersService: UsersService) { }
 
   ngOnInit(): void {
+    this.usersService.numberOfUsers().subscribe((response) => {
+      if (response['data']['users'] > 0) {
+        window.location.href = "/";
+      }
+      this.ready = true;
+    });
   }
 
   get email(){ return this.createAccountForm.get('email'); }
