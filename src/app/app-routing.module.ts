@@ -10,10 +10,12 @@ import { AuthGuard } from "./auth.guard";
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UsersComponent } from './users/users.component';
 import { OnboardingComponent } from './onboarding/onboarding.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   {'path': '', component: HomeComponent, canActivate: [AuthGuard], children: [
     {'path': '', component: DashboardComponent},
+    {'path': 'profile', component: ProfileComponent},
     {'path': 'users', component: UsersComponent},
     {'path': 'users/create', component: UserCreateComponent},
     {'path': 'users/:id', component: UserShowComponent, canActivate: [AuthGuard]},
