@@ -35,7 +35,14 @@
               </div>
             </button>
           </div>
-          <div class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 z-10" *ngIf="dropdownClicked" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
+          <div class="origin-top-right absolute right-0 mt-2 w-60 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 z-10 break-words" *ngIf="dropdownClicked" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
+            <p class="px-4">
+              {{ user.first_name }}&nbsp;{{ user.last_name }}
+            </p>
+            <p class="px-4 py-2 text-xs text-blue-400">
+              {{ user.email }}
+            </p>
+            <hr>
             <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Your Profile</a>
             <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Settings</a>
             <a href="javascript: void(0);" (click)="onSignOut()" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Sign out</a>
