@@ -7,7 +7,7 @@
         Create the first admin account for the platform.
       </p>
       <div class="py-5">
-        <form *ngIf="ready" [formGroup]="createAccountForm" (ngSubmit)="onCreateAccount()">
+        <form [formGroup]="createAccountForm" (ngSubmit)="onCreateAccount()">
           <fieldset>
             <legend>Login Details</legend>
             <div class="my-2">
