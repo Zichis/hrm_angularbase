@@ -9,6 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class UserShowComponent implements OnInit {
   user: any;
+  userLetter: string;
 
   constructor(
     private usersService: UsersService,
@@ -20,6 +21,7 @@ export class UserShowComponent implements OnInit {
     console.log(id);
     this.usersService.getUser(id).subscribe((data) => {
       this.user = data;
+      this.userLetter = this.user.first_name.charAt(0).toUpperCase();
     }, (error) => {
         //
       }
