@@ -11,6 +11,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { UsersComponent } from './users/users.component';
 import { OnboardingComponent } from './onboarding/onboarding.component';
 import { ProfileComponent } from './profile/profile.component';
+import { SettingsComponent } from './settings/settings.component';
 
 const routes: Routes = [
   {'path': '', component: HomeComponent, canActivate: [AuthGuard], children: [
@@ -19,7 +20,8 @@ const routes: Routes = [
     {'path': 'users', component: UsersComponent},
     {'path': 'users/create', component: UserCreateComponent},
     {'path': 'users/:id', component: UserShowComponent, canActivate: [AuthGuard]},
-    {'path': 'users/:id/edit', component: UserUpdateComponent, canActivate: [AuthGuard]}
+    {'path': 'users/:id/edit', component: UserUpdateComponent, canActivate: [AuthGuard]},
+    {'path': 'settings', component: SettingsComponent}
   ]},
   {'path': 'welcome', component: WelcomeComponent},
   {'path': 'onboarding', component: OnboardingComponent},
