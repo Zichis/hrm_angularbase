@@ -39,7 +39,7 @@ export class UserUpdateComponent implements OnInit {
   onUpdate(): void {
     console.log(this.updateForm.value);
     this.usersService.updateUser(this.updateForm.value, this.user['id']).subscribe((data) => {
-      this.router.navigate(['/']);
+      this.router.navigate(['/users']);
     }, (error) => {
         //
       }
