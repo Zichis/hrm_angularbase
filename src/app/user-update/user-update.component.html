@@ -1,14 +1,18 @@
-<div class="border shadow-md rounded md:w-1/2">
-  <h2 class="p-3 text-2xl">Update user</h2>
+<div class="border shadow-md rounded md:w-1/2 lg:w-2/5">
+  <h2 class="p-3 text-2xl md:px-5">Update user</h2>
   <hr>
-  <div class="p-3">
+  <div class="p-3 md:px-5">
     <form [formGroup]="updateForm" (ngSubmit)="onUpdate()">
-      <label for="first_name" class="block text-sm font-medium text-gray-700">First name</label>
-      <input class="border-solid border-2 border-light-blue-500 p-1" type="text" formControlName="first_name" placeholder="Enter first name" required>
-      <label for="last_name" class="block text-sm font-medium text-gray-700">Last name</label>
-      <input type="text" class="border-solid border-2 border-light-blue-500 p-1" formControlName="last_name" placeholder="Enter last name" required><br>
-      <button type="submit" class="inline-block mt-5 bg-gray-600 py-1 px-3 text-gray-100 hover:bg-gray-800" name="button">Update</button>&nbsp;
-      <a routerLink="/users" class="inline-block mt-5 bg-red-600 py-1 px-3 text-gray-100 hover:bg-red-800">Cancel</a>
+      <div class="mb-2">
+        <label for="first_name" class="block text-sm font-medium text-gray-700">First name</label>
+        <input class="border-solid border-2 p-1 w-full rounded focus:shadow-sm focus:outline-none focus:border-gray-300" type="text" formControlName="first_name" placeholder="Enter first name" required>
+      </div>
+      <div class="mb-2">
+        <label for="last_name" class="block text-sm font-medium text-gray-700">Last name</label>
+        <input type="text" class="border-solid border-2 p-1 w-full rounded focus:shadow-sm focus:outline-none focus:border-gray-300" formControlName="last_name" placeholder="Enter last name" required>
+      </div>
+      <button type="submit" class="inline-block bg-blue-400 py-1 px-3 text-white hover:bg-blue-600 rounded" name="button">Update</button>&nbsp;
+      <a routerLink="/users" class="inline-block bg-gray-400 py-1 px-3 text-white hover:bg-gray-600 rounded">Cancel</a>
     </form>
   </div>
 </div>
