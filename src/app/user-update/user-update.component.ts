@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from '../services/users.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-user-update',
@@ -11,9 +11,11 @@ import { FormBuilder } from '@angular/forms';
 export class UserUpdateComponent implements OnInit {
   user: any;
   updateForm = this.fb.group({
-    first_name: '',
-    last_name: ''
+    first_name: ['', [Validators.required]],
+    last_name: ['', [Validators.required]]
   });
+  firstNameError = '';
+  lastNameError = '';
 
   constructor(
     private usersService: UsersService,
@@ -36,12 +38,17 @@ export class UserUpdateComponent implements OnInit {
     );
   }
 
+  get firstName(){ return this.updateForm.get('first_name'); }
+
+  get lastName(){ return this.updateForm.get('last_name'); }
+
   onUpdate(): void {
     console.log(this.updateForm.value);
     this.usersService.updateUser(this.updateForm.value, this.user['id']).subscribe((data) => {
       this.router.navigate(['/users']);
     }, (error) => {
-        //
+        this.firstNameError = error['error']['first_name'];
+        this.lastNameError = error['error']['last_name'];
       }
     );
   }
