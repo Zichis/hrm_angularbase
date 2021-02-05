@@ -6,12 +6,16 @@
       <div class="mb-2">
         <label for="first_name" class="block text-sm font-medium text-gray-700">First name</label>
         <input class="border-solid border-2 p-1 w-full rounded focus:shadow-sm focus:outline-none focus:border-gray-300" type="text" formControlName="first_name" placeholder="Enter first name" required>
+        <p class="text-red-400">{{ firstNameError }}</p>
+        <span *ngIf="firstName.invalid && firstName.touched" class="text-red-400">Wrong first name input</span>
       </div>
       <div class="mb-2">
         <label for="last_name" class="block text-sm font-medium text-gray-700">Last name</label>
         <input type="text" class="border-solid border-2 p-1 w-full rounded focus:shadow-sm focus:outline-none focus:border-gray-300" formControlName="last_name" placeholder="Enter last name" required>
+        <p class="text-red-400">{{ lastNameError }}</p>
+        <span *ngIf="lastName.invalid && lastName.touched" class="text-red-400">Wrong last name input</span>
       </div>
-      <button type="submit" class="inline-block bg-blue-400 py-1 px-3 text-white hover:bg-blue-600 rounded" name="button">Update</button>&nbsp;
+      <button type="submit" [disabled]="updateForm.invalid" class="inline-block bg-blue-400 py-1 px-3 text-white hover:bg-blue-600 rounded" name="button">Update</button>&nbsp;
       <a routerLink="/users" class="inline-block bg-gray-400 py-1 px-3 text-white hover:bg-gray-600 rounded">Cancel</a>
     </form>
   </div>
