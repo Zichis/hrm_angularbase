@@ -11,7 +11,8 @@ import { UsersService } from '../services/users.service';
 export class LoginComponent implements OnInit {
   loginForm = this.fb.group({
     email: ['', [Validators.required]],
-    password: ['', [Validators.required]]
+    password: ['', [Validators.required]],
+    remember: [true],
   });
   errorMessage = '';
   ready: boolean = false;

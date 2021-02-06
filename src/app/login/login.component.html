@@ -14,7 +14,12 @@
           <input type="password" class="border-2 rounded block w-full p-1 focus:shadow-sm focus:outline-none focus:border-gray-300" formControlName="password" placeholder="Enter password" required>
           <span *ngIf="password.invalid && password.touched" class="text-red-400">Enter password</span>
         </div>
-        <button type="submit" [disabled]="loginForm.invalid" class="bg-green-600 text-white py-1 px-3 rounded shadow-sm hover:bg-green-800" name="button">Login</button>
+        <div class="my-2 flex justify-between items-center">
+          <button type="submit" [disabled]="loginForm.invalid" class="bg-green-600 text-white py-1 px-3 rounded shadow-sm hover:bg-green-800" name="button">Login</button>
+          <label for="remember">
+            <input type="checkbox" formControlName="remember" id="remember"> Remember me
+          </label>
+        </div>
         <p class="text-red-400">{{ errorMessage }}</p>
       </form>
     </div>
