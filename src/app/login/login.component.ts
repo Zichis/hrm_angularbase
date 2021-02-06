@@ -9,8 +9,9 @@ import { UsersService } from '../services/users.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  lastEmail = localStorage.getItem('baseAppLastEmail');
   loginForm = this.fb.group({
-    email: ['', [Validators.required]],
+    email: [this.lastEmail, [Validators.required]],
     password: ['', [Validators.required]],
     remember: [true],
   });
@@ -43,6 +44,7 @@ export class LoginComponent implements OnInit {
       console.log(data);
       //console.log(data.token.original.token);
       localStorage.setItem('baseAppToken', data['token']['original']['token']);
+      localStorage.setItem('baseAppLastEmail', this.email.value);
       window.location.href = "/";
     }, (error) => {
         this.errorMessage = error['error']['message'];
