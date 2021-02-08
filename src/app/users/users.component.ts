@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from '../services/users.service';
-import { faUserPlus, faEdit, faTrash, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
+import { faUserPlus, faEdit, faTrash, faInfoCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-users',
@@ -13,8 +13,10 @@ export class UsersComponent implements OnInit {
   trash = faTrash;
   userPlus = faUserPlus;
   infoCircle = faInfoCircle;
+  timesCircle = faTimesCircle;
   user: Object;
   deleteClicked: boolean = false;
+  alertMsg = localStorage.getItem('baseAppAlert');
 
   constructor(private userService: UsersService) { }
 
@@ -51,11 +53,19 @@ export class UsersComponent implements OnInit {
     this.userService.deleteUser(id).subscribe((response) => {
       this.users = response['data']['users'];
       this.deleteClicked = false;
+      localStorage.setItem('baseAppAlert', `Account deleted.`);
+      this.alertMsg = localStorage.getItem('baseAppAlert');
     }, (error) => {
       if (error.status === 401) {
         window.location.href = "/login";
       }
     })
+  }
+
+  onCloseAlert() {
+    console.log("We are ready!");
+    localStorage.removeItem("baseAppAlert");
+    this.alertMsg = null;
   }
 
 }
