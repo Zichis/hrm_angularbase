@@ -23,6 +23,7 @@ export class UsersComponent implements OnInit {
   ngOnInit(): void {
     this.userService.getUsers().subscribe((users) => {
       this.users = users;
+      this.autoRemoveAlert();
       console.log(this.users);
     }, (error) => {
       if (error.status === 401) {
@@ -60,6 +61,13 @@ export class UsersComponent implements OnInit {
         window.location.href = "/login";
       }
     })
+  }
+
+  autoRemoveAlert() {
+    setTimeout(() => {
+      localStorage.removeItem("baseAppAlert");
+      this.alertMsg = null;
+    }, 7000);
   }
 
   onCloseAlert() {
