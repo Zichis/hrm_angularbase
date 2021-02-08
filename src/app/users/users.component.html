@@ -3,6 +3,12 @@
   <button class="bg-red-400 py-1 px-2 text-white text-sm rounded hover:bg-red-600 focus:outline-none" type="button" name="button" (click)="onConfirmDelete(user?.id)">Confirm</button>&nbsp;
   <button class="bg-gray-400 py-1 px-2 text-white text-sm rounded hover:bg-gray-600 focus:outline-none" type="button" name="button" (click)="onCancelDelete()">Cancel</button>
 </div>
+<div *ngIf="alertMsg" class="notify-alert flex items-center bg-gray-700 text-white bg-opacity-75 p-3 mt-14 rounded fixed top-0 right-0 mr-10">
+  <p class="font-extralight mr-2">{{ alertMsg }}</p>
+  <button class="p-0 text-white text-sm rounded text-xs hover:text-red-400 focus:outline-none" type="button" name="button" (click)="onCloseAlert()">
+    <fa-icon [icon]="timesCircle"></fa-icon>
+  </button>
+</div>
 <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
   <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
     <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
