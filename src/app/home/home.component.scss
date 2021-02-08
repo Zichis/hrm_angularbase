@@ -1,7 +1,7 @@
 .sidemenu {
   width: 320px;
   left: -320px;
-  transition: all 200ms linear 200ms;
+  transition: margin 200ms linear 200ms, left 200ms linear 200ms;
 }
 
 .open {
