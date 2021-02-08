@@ -1,7 +1,11 @@
-<div *ngIf="deleteClicked" class="bg-blue-100 mb-2 px-5 py-2 rounded border border-blue-500 text-blue-900">
-  <fa-icon [icon]="infoCircle"></fa-icon> Delete {{ user?.first_name }}'s account?
-  <button class="bg-red-400 py-1 px-2 text-white text-sm rounded hover:bg-red-600 focus:outline-none" type="button" name="button" (click)="onConfirmDelete(user?.id)">Confirm</button>&nbsp;
-  <button class="bg-gray-400 py-1 px-2 text-white text-sm rounded hover:bg-gray-600 focus:outline-none" type="button" name="button" (click)="onCancelDelete()">Cancel</button>
+<div *ngIf="deleteClicked" class="flex flex-col bg-blue-100 mb-2 px-5 py-2 rounded border border-blue-500 text-blue-900 md:flex-row">
+  <div>
+    <fa-icon [icon]="infoCircle"></fa-icon> Delete {{ user?.first_name }}'s account?
+  </div>
+  <div class="md:ml-2">
+    <button class="bg-red-400 py-1 px-2 text-white text-sm rounded hover:bg-red-600 focus:outline-none" type="button" name="button" (click)="onConfirmDelete(user?.id)">Confirm</button>&nbsp;
+    <button class="bg-gray-400 py-1 px-2 text-white text-sm rounded hover:bg-gray-600 focus:outline-none" type="button" name="button" (click)="onCancelDelete()">Cancel</button>
+  </div>
 </div>
 <div *ngIf="alertMsg" class="notify-alert flex items-center bg-gray-700 text-white bg-opacity-75 p-3 mt-14 rounded fixed top-0 right-0 mr-10">
   <p class="font-extralight mr-2">{{ alertMsg }}</p>
