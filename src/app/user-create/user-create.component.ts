@@ -41,7 +41,8 @@ export class UserCreateComponent implements OnInit {
     console.log(this.createForm.value);
     this.usersService.createUser(this.createForm.value).subscribe((data) => {
       console.log(data);
-      this.router.navigate(['/']);
+      localStorage.setItem('baseAppAlert', `Account created for ${this.firstName.value}`);
+      this.router.navigate(['/users']);
     }, (error) => {
         this.emailError = error['error']['email'];
         this.passwordError = error['error']['password'];
