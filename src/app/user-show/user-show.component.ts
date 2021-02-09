@@ -23,7 +23,8 @@ export class UserShowComponent implements OnInit {
       this.user = data;
       this.userLetter = this.user.first_name.charAt(0).toUpperCase();
     }, (error) => {
-        //
+        localStorage.setItem('baseAppAlert', `User not found!`);
+        window.location.href = '/users';
       }
     );
   }
