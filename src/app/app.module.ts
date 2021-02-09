@@ -17,7 +17,7 @@ import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UsersComponent } from './users/users.component';
 import { OnboardingComponent } from './views/onboarding/onboarding.component';
-import { ProfileComponent } from './profile/profile.component';
+import { ProfileComponent } from './views/profile/profile.component';
 import { SettingsComponent } from './views/settings/settings.component';
 
 @NgModule({
