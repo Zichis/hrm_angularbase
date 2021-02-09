@@ -16,7 +16,7 @@ import { UserUpdateComponent } from './user-update/user-update.component';
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UsersComponent } from './users/users.component';
-import { OnboardingComponent } from './onboarding/onboarding.component';
+import { OnboardingComponent } from './views/onboarding/onboarding.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SettingsComponent } from './settings/settings.component';
 
