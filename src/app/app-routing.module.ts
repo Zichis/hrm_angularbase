@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './views/home/home.component';
 import { WelcomeComponent } from './views/welcome/welcome.component';
 import { LoginComponent} from './views/login/login.component';
 import { UserCreateComponent } from './user-create/user-create.component';
