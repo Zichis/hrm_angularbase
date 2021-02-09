@@ -7,7 +7,7 @@ import { UserCreateComponent } from './user-create/user-create.component';
 import { UserShowComponent } from './user-show/user-show.component';
 import { UserUpdateComponent } from "./user-update/user-update.component";
 import { AuthGuard } from "./auth.guard";
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardComponent } from './views/dashboard/dashboard.component';
 import { UsersComponent } from './users/users.component';
 import { OnboardingComponent } from './views/onboarding/onboarding.component';
 import { ProfileComponent } from './views/profile/profile.component';
