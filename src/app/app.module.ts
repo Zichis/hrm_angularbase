@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { WelcomeComponent } from './welcome/welcome.component';
+import { WelcomeComponent } from './views/welcome/welcome.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { from } from 'rxjs';
 import { LoginComponent } from './login/login.component';
