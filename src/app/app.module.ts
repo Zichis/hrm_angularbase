@@ -8,7 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { WelcomeComponent } from './views/welcome/welcome.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { from } from 'rxjs';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './views/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserCreateComponent } from './user-create/user-create.component';
 import { UserShowComponent } from './user-show/user-show.component';

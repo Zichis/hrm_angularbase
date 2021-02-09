@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { WelcomeComponent } from './views/welcome/welcome.component';
-import { LoginComponent} from './login/login.component';
+import { LoginComponent} from './views/login/login.component';
 import { UserCreateComponent } from './user-create/user-create.component';
 import { UserShowComponent } from './user-show/user-show.component';
 import { UserUpdateComponent } from "./user-update/user-update.component";
