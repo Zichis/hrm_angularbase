@@ -56,6 +56,12 @@ export class UsersComponent implements OnInit {
       this.deleteClicked = false;
       localStorage.setItem('baseAppAlert', `Account deleted.`);
       this.alertMsg = localStorage.getItem('baseAppAlert');
+      // Redirect to onboarding if user deleted is last user
+      this.userService.numberOfUsers().subscribe((response) => {
+        if (response['data']['users'] < 1) {
+          window.location.href = "/onboarding";
+        }
+      });
     }, (error) => {
       if (error.status === 401) {
         window.location.href = "/login";
