@@ -12,16 +12,20 @@ import { UsersComponent } from './views/users/users/users.component';
 import { OnboardingComponent } from './views/onboarding/onboarding.component';
 import { ProfileComponent } from './views/profile/profile.component';
 import { SettingsComponent } from './views/settings/settings.component';
+import { UserHomeComponent } from './views/user-home/user-home.component';
 
 const routes: Routes = [
-  {'path': '', component: HomeComponent, canActivate: [AuthGuard], children: [
-    {'path': 'admin', component: DashboardComponent},
+  {'path': 'admin', component: HomeComponent, canActivate: [AuthGuard], children: [
+    {'path': '', component: DashboardComponent},
+    {'path': 'users', component: UsersComponent},
+    {'path': 'users/create', component: UserCreateComponent},
+    {'path': 'users/:id', component: UserShowComponent, canActivate: [AuthGuard]},
+    {'path': 'users/:id/edit', component: UserUpdateComponent, canActivate: [AuthGuard]},
+    {'path': 'settings', component: SettingsComponent},
+  ]},
+  {'path': '', component: UserHomeComponent, canActivate: [AuthGuard], children: [
+    { path: '',   redirectTo: 'profile', pathMatch: 'full' },
     {'path': 'profile', component: ProfileComponent},
-    {'path': 'admin/users', component: UsersComponent},
-    {'path': 'admin/users/create', component: UserCreateComponent},
-    {'path': 'admin/users/:id', component: UserShowComponent, canActivate: [AuthGuard]},
-    {'path': 'admin/users/:id/edit', component: UserUpdateComponent, canActivate: [AuthGuard]},
-    {'path': 'admin/settings', component: SettingsComponent}
   ]},
   {'path': 'welcome', component: WelcomeComponent},
   {'path': 'onboarding', component: OnboardingComponent},
