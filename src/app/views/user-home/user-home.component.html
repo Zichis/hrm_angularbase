@@ -1,2 +1,63 @@
-<p>user-home works!</p>
-<router-outlet></router-outlet>
+<div class="wrapper" class="h-screen bg-dark-gray flex">
+    <div class="bg-gray-700 h-screen sidemenu fixed z-10 md:relative" [ngClass]="sideMenuOpen ? 'open' : 'close'">
+        <div>
+          <h1 class="bg-black bg-opacity-20 border-b-2 border-gray-600 p-5 text-center text-lg font-bold text-gray-100">COMPANY</h1>
+        </div>
+        <div class="p-2 text-right md:hidden">
+          <button class="bg-red-400 text-white px-1 rounded hover:bg-red-600" type="button" (click)="onCloseSideMenu()">Close</button>
+        </div>
+        <div class="mt-5">
+          <a routerLink="/admin" routerLinkActive="text-blue-400" [routerLinkActiveOptions]="{exact: true}" class="flex py-2 px-10 text-white hover:text-blue-400">
+            <fa-icon [icon]="th"></fa-icon>
+            <span class="pl-2">DASHBOARD</span>
+          </a>
+          <a routerLink="profile" routerLinkActive="text-blue-400" [routerLinkActiveOptions]="{exact: true}" class="flex py-2 px-10 text-white hover:text-blue-400">
+            <fa-icon [icon]="userIcon"></fa-icon>
+            <span class="pl-2">PROFILE</span>
+          </a>
+          <a routerLink="settings" routerLinkActive="text-blue-400" [routerLinkActiveOptions]="{exact: true}" class="flex py-2 px-10 text-white hover:text-blue-400">
+            <fa-icon [icon]="settingIcon"></fa-icon>
+            <span class="pl-2">SETTINGS</span>
+          </a>
+        </div>
+    </div>
+    <div class="flex flex-col flex-1 bg-grey-100 main-content">
+      <div class="p-5 bg-gray-50 border-b-2 border-fuchsia-600 flex justify-between">
+        <div class="flex">
+          <button class="mr-5 px-2 border border-1 hover:bg-gray-200 focus:outline-none" type="button" (click)="toggleSidemenu()">
+            <fa-icon [icon]="menuIcon"></fa-icon>
+          </button>
+          <h3 class="text-lg text-gray-700">{{ today|date:'EEEE, LLLL d' }}</h3>
+        </div>
+        <div>
+          <div class="ml-3 relative">
+          <div>
+            <button class="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu" (click)="onDropdownClick()" aria-haspopup="true">
+              <span class="sr-only">Open user menu</span>
+              <div class="flex h-7 w-7 rounded-full bg-blue-400 text-white justify-center items-center">
+                {{ userLetter }}
+              </div>
+            </button>
+          </div>
+          <div class="origin-top-right absolute right-0 mt-2 w-60 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 z-10 break-words" *ngIf="dropdownClicked" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
+            <p class="px-4">
+              {{ user.first_name }}&nbsp;{{ user.last_name }}
+            </p>
+            <p class="px-4 py-2 text-xs text-blue-400">
+              {{ user.email }}
+            </p>
+            <hr>
+            <a routerLink="/profile" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Switch Profile</a>
+            <a routerLink="settings" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Settings</a>
+            <a href="javascript: void(0);" (click)="onSignOut()" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Sign out</a>
+          </div>
+        </div>
+        </div>
+      </div>
+      <div class="p-5 flex-1 md:p-10" (click)="onBodyClick()">
+        <div class="flex flex-col">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+</div>
