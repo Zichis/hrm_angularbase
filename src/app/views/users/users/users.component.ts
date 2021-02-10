@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UsersService } from '../services/users.service';
+import { UsersService } from '../../../services/users.service';
 import { faUserPlus, faEdit, faTrash, faInfoCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
 @Component({

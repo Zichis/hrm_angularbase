@@ -15,7 +15,7 @@ import { UserShowComponent } from './views/users/user-show/user-show.component';
 import { UserUpdateComponent } from './views/users/user-update/user-update.component';
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { DashboardComponent } from './views/dashboard/dashboard.component';
-import { UsersComponent } from './users/users.component';
+import { UsersComponent } from './views/users/users/users.component';
 import { OnboardingComponent } from './views/onboarding/onboarding.component';
 import { ProfileComponent } from './views/profile/profile.component';
 import { SettingsComponent } from './views/settings/settings.component';
