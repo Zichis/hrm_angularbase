@@ -18,10 +18,21 @@ export class OnboardingComponent implements OnInit {
   passwordError = '';
   firstNameError = '';
   lastNameError = '';
+  canLoad: boolean = false;
+  status: string;
 
   constructor(private fb: FormBuilder, private usersService: UsersService) { }
 
   ngOnInit(): void {
+    this.usersService.numberOfUsers().subscribe((data) => {
+      if (data['data']['users'] > 0) {
+        window.location.href = "/";
+      }
+      this.canLoad = true;
+    }, (error) => {
+        this.status = "Error occured!";
+      }
+    );
   }
 
   get email(){ return this.createAccountForm.get('email'); }
