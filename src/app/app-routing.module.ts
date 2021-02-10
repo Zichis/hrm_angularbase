@@ -5,7 +5,7 @@ import { WelcomeComponent } from './views/welcome/welcome.component';
 import { LoginComponent} from './views/login/login.component';
 import { UserCreateComponent } from './views/users/user-create/user-create.component';
 import { UserShowComponent } from './views/users/user-show/user-show.component';
-import { UserUpdateComponent } from "./user-update/user-update.component";
+import { UserUpdateComponent } from "./views/users/user-update/user-update.component";
 import { AuthGuard } from "./auth.guard";
 import { DashboardComponent } from './views/dashboard/dashboard.component';
 import { UsersComponent } from './users/users.component';
