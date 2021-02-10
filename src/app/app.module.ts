@@ -19,6 +19,7 @@ import { UsersComponent } from './views/users/users/users.component';
 import { OnboardingComponent } from './views/onboarding/onboarding.component';
 import { ProfileComponent } from './views/profile/profile.component';
 import { SettingsComponent } from './views/settings/settings.component';
+import { UserHomeComponent } from './views/user-home/user-home.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { SettingsComponent } from './views/settings/settings.component';
     UsersComponent,
     OnboardingComponent,
     ProfileComponent,
-    SettingsComponent
+    SettingsComponent,
+    UserHomeComponent
   ],
   imports: [
     BrowserModule,
