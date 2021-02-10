@@ -15,13 +15,13 @@ import { SettingsComponent } from './views/settings/settings.component';
 
 const routes: Routes = [
   {'path': '', component: HomeComponent, canActivate: [AuthGuard], children: [
-    {'path': '', component: DashboardComponent},
+    {'path': 'admin', component: DashboardComponent},
     {'path': 'profile', component: ProfileComponent},
-    {'path': 'users', component: UsersComponent},
-    {'path': 'users/create', component: UserCreateComponent},
-    {'path': 'users/:id', component: UserShowComponent, canActivate: [AuthGuard]},
-    {'path': 'users/:id/edit', component: UserUpdateComponent, canActivate: [AuthGuard]},
-    {'path': 'settings', component: SettingsComponent}
+    {'path': 'admin/users', component: UsersComponent},
+    {'path': 'admin/users/create', component: UserCreateComponent},
+    {'path': 'admin/users/:id', component: UserShowComponent, canActivate: [AuthGuard]},
+    {'path': 'admin/users/:id/edit', component: UserUpdateComponent, canActivate: [AuthGuard]},
+    {'path': 'admin/settings', component: SettingsComponent}
   ]},
   {'path': 'welcome', component: WelcomeComponent},
   {'path': 'onboarding', component: OnboardingComponent},
