@@ -6,7 +6,7 @@ import { LoginComponent} from './views/login/login.component';
 import { UserCreateComponent } from './views/users/user-create/user-create.component';
 import { UserShowComponent } from './views/users/user-show/user-show.component';
 import { UserUpdateComponent } from "./views/users/user-update/user-update.component";
-import { AuthGuard } from "./auth.guard";
+import { AuthGuard } from "./guards/auth.guard";
 import { DashboardComponent } from './views/dashboard/dashboard.component';
 import { UsersComponent } from './views/users/users/users.component';
 import { OnboardingComponent } from './views/onboarding/onboarding.component';
