@@ -10,7 +10,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { from } from 'rxjs';
 import { LoginComponent } from './views/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { UserCreateComponent } from './user-create/user-create.component';
+import { UserCreateComponent } from './views/users/user-create/user-create.component';
 import { UserShowComponent } from './user-show/user-show.component';
 import { UserUpdateComponent } from './user-update/user-update.component';
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
