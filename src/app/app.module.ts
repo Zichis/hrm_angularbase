@@ -20,6 +20,7 @@ import { OnboardingComponent } from './views/onboarding/onboarding.component';
 import { ProfileComponent } from './views/profile/profile.component';
 import { SettingsComponent } from './views/settings/settings.component';
 import { UserHomeComponent } from './views/user-home/user-home.component';
+import { UserDashboardComponent } from './views/user-dashboard/user-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { UserHomeComponent } from './views/user-home/user-home.component';
     OnboardingComponent,
     ProfileComponent,
     SettingsComponent,
-    UserHomeComponent
+    UserHomeComponent,
+    UserDashboardComponent
   ],
   imports: [
     BrowserModule,
