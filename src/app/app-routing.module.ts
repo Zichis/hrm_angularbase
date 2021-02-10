@@ -13,6 +13,7 @@ import { OnboardingComponent } from './views/onboarding/onboarding.component';
 import { ProfileComponent } from './views/profile/profile.component';
 import { SettingsComponent } from './views/settings/settings.component';
 import { UserHomeComponent } from './views/user-home/user-home.component';
+import { UserDashboardComponent } from './views/user-dashboard/user-dashboard.component';
 
 const routes: Routes = [
   {'path': 'admin', component: HomeComponent, canActivate: [AuthGuard], children: [
@@ -24,8 +25,9 @@ const routes: Routes = [
     {'path': 'settings', component: SettingsComponent},
   ]},
   {'path': '', component: UserHomeComponent, canActivate: [AuthGuard], children: [
-    { path: '',   redirectTo: 'profile', pathMatch: 'full' },
+    {'path': '',   redirectTo: 'dashboard', pathMatch: 'full' },
     {'path': 'profile', component: ProfileComponent},
+    {'path': 'dashboard', component: UserDashboardComponent}
   ]},
   {'path': 'welcome', component: WelcomeComponent},
   {'path': 'onboarding', component: OnboardingComponent},
