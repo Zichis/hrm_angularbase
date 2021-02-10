@@ -4,7 +4,7 @@ import { HomeComponent } from './views/home/home.component';
 import { WelcomeComponent } from './views/welcome/welcome.component';
 import { LoginComponent} from './views/login/login.component';
 import { UserCreateComponent } from './views/users/user-create/user-create.component';
-import { UserShowComponent } from './user-show/user-show.component';
+import { UserShowComponent } from './views/users/user-show/user-show.component';
 import { UserUpdateComponent } from "./user-update/user-update.component";
 import { AuthGuard } from "./auth.guard";
 import { DashboardComponent } from './views/dashboard/dashboard.component';
