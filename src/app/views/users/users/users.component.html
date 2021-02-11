@@ -26,7 +26,7 @@
               Email
             </th>
             <th scope="col" class="relative px-6 py-3 text-right">
-              <a routerLink="/users/create" class="inline-block bg-gray-600 hover:bg-gray-800 py-1 px-3 text-white rounded shadow-md"><fa-icon [icon]="userPlus"></fa-icon></a>
+              <a routerLink="users/create" class="inline-block bg-gray-600 hover:bg-gray-800 py-1 px-3 text-white rounded shadow-md"><fa-icon [icon]="userPlus"></fa-icon></a>
             </th>
           </tr>
         </thead>
@@ -39,7 +39,7 @@
                 </div>
                 <div class="ml-4">
                   <div class="text-sm font-medium">
-                    <a routerLink="/users/{{ user.id }}" class="text-gray-500 hover:text-gray-600">{{ user.first_name }}&nbsp;{{ user.last_name }}</a>
+                    <a routerLink="{{ user.id }}" class="text-gray-500 hover:text-gray-600">{{ user.first_name }}&nbsp;{{ user.last_name }}</a>
                   </div>
                 </div>
               </div>
@@ -52,7 +52,7 @@
               </div>
             </td>
             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-              <a routerLink="/users/{{ user.id }}/edit" class="text-blue-400 hover:text-blue-700"><fa-icon [icon]="edit"></fa-icon></a>&nbsp;
+              <a routerLink="{{ user.id }}/edit" class="text-blue-400 hover:text-blue-700"><fa-icon [icon]="edit"></fa-icon></a>&nbsp;
               <button (click)="onDelete(user.id)" class="text-red-400 hover:text-red-700 focus:outline-none focus:text-red-700"><fa-icon [icon]="trash"></fa-icon></button>
             </td>
           </tr>
