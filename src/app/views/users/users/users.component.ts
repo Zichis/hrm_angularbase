@@ -57,6 +57,7 @@ export class UsersComponent implements OnInit {
 
   onConfirmDelete(id: any) {
     this.userService.deleteUser(id).subscribe((response) => {
+      this.deleteClicked = false;
       this.users = response['data']['users'];
       localStorage.setItem('baseAppAlert', `Account deleted.`);
       this.alertMsg = localStorage.getItem('baseAppAlert');
