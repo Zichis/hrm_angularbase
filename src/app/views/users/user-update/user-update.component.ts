@@ -45,7 +45,7 @@ export class UserUpdateComponent implements OnInit {
   onUpdate(): void {
     this.usersService.updateUser(this.updateForm.value, this.user['id']).subscribe((data) => {
       localStorage.setItem('baseAppAlert', `User's account updated.`);
-      this.router.navigate(['/users']);
+      this.router.navigate(['/admin/users']);
     }, (error) => {
         this.firstNameError = error['error']['first_name'];
         this.lastNameError = error['error']['last_name'];
