@@ -18,7 +18,6 @@ export class UserShowComponent implements OnInit {
 
   ngOnInit(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    console.log(id);
     this.usersService.getUser(id).subscribe((data) => {
       this.user = data;
       this.userLetter = this.user.first_name.charAt(0).toUpperCase();

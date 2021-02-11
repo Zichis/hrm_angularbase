@@ -26,7 +26,6 @@ export class UsersComponent implements OnInit {
     this.userService.getUsers().subscribe((users: User[]) => {
       this.users = users;
       this.autoRemoveAlert();
-      console.log(this.users);
     }, (error) => {
       if (error.status === 401) {
         window.location.href = "/login";
@@ -87,7 +86,6 @@ export class UsersComponent implements OnInit {
   }
 
   onCloseAlert() {
-    console.log("We are ready!");
     localStorage.removeItem("baseAppAlert");
     this.alertMsg = null;
   }

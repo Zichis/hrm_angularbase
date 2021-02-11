@@ -14,7 +14,6 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.usersService.getCurrentUser().subscribe((data) => {
-      console.log(data['data']['user']);
       this.user = data['data']['user'];
       this.userLetter = this.user.first_name.charAt(0).toUpperCase();
     }, (error) => {

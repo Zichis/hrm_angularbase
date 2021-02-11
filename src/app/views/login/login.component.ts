@@ -39,10 +39,7 @@ export class LoginComponent implements OnInit {
   get password(){ return this.loginForm.get('password'); }
 
   onLogin(): void {
-    console.log(this.loginForm.value);
     this.loginService.loginUser(this.loginForm.value).subscribe((data) => {
-      console.log(data);
-      //console.log(data.token.original.token);
       localStorage.setItem('baseAppToken', data['token']['original']['token']);
       localStorage.setItem('baseAppLastEmail', this.email.value);
       window.location.href = "/";

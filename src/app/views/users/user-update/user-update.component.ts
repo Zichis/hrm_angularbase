@@ -43,7 +43,6 @@ export class UserUpdateComponent implements OnInit {
   get lastName(){ return this.updateForm.get('last_name'); }
 
   onUpdate(): void {
-    console.log(this.updateForm.value);
     this.usersService.updateUser(this.updateForm.value, this.user['id']).subscribe((data) => {
       localStorage.setItem('baseAppAlert', `User's account updated.`);
       this.router.navigate(['/users']);

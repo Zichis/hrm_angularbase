@@ -20,7 +20,6 @@ export class UsersService {
   ) { }
 
   getUsers(){
-    console.log(this.authToken);
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${this.authToken}`

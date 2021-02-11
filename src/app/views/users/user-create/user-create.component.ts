@@ -38,9 +38,7 @@ export class UserCreateComponent implements OnInit {
   get lastName(){ return this.createForm.get('last_name'); }
 
   onCreate(): void {
-    console.log(this.createForm.value);
     this.usersService.createUser(this.createForm.value).subscribe((data) => {
-      console.log(data);
       localStorage.setItem('baseAppAlert', `Account created for ${this.firstName.value}`);
       this.router.navigate(['/users']);
     }, (error) => {
