@@ -45,6 +45,7 @@ export class UsersComponent implements OnInit {
     this.deleteClicked = true;
     this.userService.getUser(id).subscribe((data: User) => {
       this.user = data;
+      this.autoRemoveAlert();
     }, (_error) => {
         //
       }
