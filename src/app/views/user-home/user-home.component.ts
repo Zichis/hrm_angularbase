@@ -21,6 +21,7 @@ export class UserHomeComponent implements OnInit {
   dropdownClicked = false;
   today: number = Date.now();
   sideMenuOpen = false;
+  isAdmin: boolean = false;
 
   constructor(
     private userService: UsersService,
@@ -35,6 +36,12 @@ export class UserHomeComponent implements OnInit {
       if (error.status === 401) {
         //this.router.navigate(['/login']);
         window.location.href = "/login";
+      }
+    });
+
+    this.userService.getRoles().subscribe((response) => {
+      if (response['data']['roles'].includes('ROLE_ADMIN')) {
+        this.isAdmin = true;
       }
     });
   }
