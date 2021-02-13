@@ -28,7 +28,7 @@ export class UsersComponent implements OnInit {
       this.autoRemoveAlert();
     }, (error) => {
       if (error.status === 401) {
-        window.location.href = "/login";
+        window.location.href = "/";
       }
     });
 
