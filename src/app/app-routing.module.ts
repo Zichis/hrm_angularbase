@@ -15,9 +15,10 @@ import { SettingsComponent } from './views/settings/settings.component';
 import { UserHomeComponent } from './views/user-home/user-home.component';
 import { UserDashboardComponent } from './views/user-dashboard/user-dashboard.component';
 import { PageNotFoundComponent } from './views/page-not-found/page-not-found.component';
+import { AdminGuard } from './guards/admin.guard';
 
 const routes: Routes = [
-  {'path': 'admin', component: HomeComponent, canActivate: [AuthGuard], children: [
+  {'path': 'admin', component: HomeComponent, canActivate: [AuthGuard, AdminGuard], children: [
     {'path': '', component: DashboardComponent},
     {'path': 'users', component: UsersComponent},
     {'path': 'users/create', component: UserCreateComponent},
