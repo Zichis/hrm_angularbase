@@ -66,11 +66,15 @@ export class UsersService {
     return this.http.post('http://localhost:4000/onboard', data, {'headers': headers});
   }
 
-  public isAuthenticated(): boolean {
+  isAuthenticated(): boolean {
     return !this.jwtHelper.isTokenExpired(this.authToken);
   }
 
   numberOfUsers() {
       return this.http.get(`http://localhost:4000/users/count`);
+  }
+
+  getRoles() {
+    return this.http.get(`http://localhost:4000/user/roles`, {'headers': this.headers});
   }
 }
