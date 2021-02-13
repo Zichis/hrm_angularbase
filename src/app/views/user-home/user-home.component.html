@@ -47,7 +47,7 @@
               {{ user.email }}
             </p>
             <hr>
-            <a routerLink="/profile" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Switch Profile</a>
+            <a routerLink="/admin" *ngIf="isAdmin" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Admin</a>
             <a routerLink="settings" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Settings</a>
             <a href="javascript: void(0);" (click)="onSignOut()" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Sign out</a>
           </div>
