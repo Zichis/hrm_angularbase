@@ -13,7 +13,8 @@ export class UserCreateComponent implements OnInit {
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required]],
     first_name: ['', [Validators.required]],
-    last_name: ['', [Validators.required]]
+    last_name: ['', [Validators.required]],
+    admin: []
   });
   emailError = '';
   passwordError = '';
