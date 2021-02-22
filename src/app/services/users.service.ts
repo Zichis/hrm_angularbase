@@ -13,6 +13,7 @@ export class UsersService {
     'Content-Type': 'application/json',
     'Authorization': `Bearer ${this.authToken}`
   });
+  baseUrl: string = 'http://hrm_lumenbase.test';
 
   constructor(
     private http: HttpClient,
@@ -24,7 +25,7 @@ export class UsersService {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${this.authToken}`
     });
-    return this.http.get('http://localhost:4000/users', {'headers': headers});
+    return this.http.get(this.baseUrl, {'headers': headers});
   }
 
   createUser(data){
@@ -32,23 +33,23 @@ export class UsersService {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${this.authToken}`
     });
-    return this.http.post('http://localhost:4000/users', data, {'headers': headers});
+    return this.http.post(this.baseUrl, data, {'headers': headers});
   }
 
   getUser(id){
-    return this.http.get(`http://localhost:4000/users/${id}`, {'headers': this.headers});
+    return this.http.get(`${this.baseUrl}/users/${id}`, {'headers': this.headers});
   }
 
   getCurrentUser(){
-    return this.http.get(`http://localhost:4000/current-user`, {'headers': this.headers});
+    return this.http.get(`${this.baseUrl}/current-user`, {'headers': this.headers});
   }
 
   deleteUser(id){
-    return this.http.delete(`http://localhost:4000/users/${id}`, {'headers': this.headers});
+    return this.http.delete(`${this.baseUrl}/users/${id}`, {'headers': this.headers});
   }
 
   signOut(){
-    return this.http.get(`http://localhost:4000/logout`, {'headers': this.headers});
+    return this.http.get(`${this.baseUrl}/logout`, {'headers': this.headers});
   }
 
   updateUser(data, id){
@@ -56,14 +57,14 @@ export class UsersService {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${this.authToken}`
     });
-    return this.http.put(`http://localhost:4000/users/${id}`, data, {'headers': headers});
+    return this.http.put(`${this.baseUrl}/users/${id}`, data, {'headers': headers});
   }
 
   onboardUser(data){
     const headers = new HttpHeaders({
       'Content-Type': 'application/json'
     });
-    return this.http.post('http://localhost:4000/onboard', data, {'headers': headers});
+    return this.http.post('${this.baseUrl}/onboard', data, {'headers': headers});
   }
 
   isAuthenticated(): boolean {
@@ -71,10 +72,10 @@ export class UsersService {
   }
 
   numberOfUsers() {
-      return this.http.get(`http://localhost:4000/users/count`);
+      return this.http.get(`${this.baseUrl}/users/count`);
   }
 
   getRoles() {
-    return this.http.get(`http://localhost:4000/user/roles`, {'headers': this.headers});
+    return this.http.get(`${this.baseUrl}/user/roles`, {'headers': this.headers});
   }
 }

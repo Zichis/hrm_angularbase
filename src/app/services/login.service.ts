@@ -7,10 +7,11 @@ import { catchError, retry } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class LoginService {
+  baseUrl: string = 'http://hrm_lumenbase.test';
 
   constructor(private http: HttpClient) { }
 
   loginUser(data:any){
-    return this.http.post('http://localhost:4000/login', data);
+    return this.http.post(`${this.baseUrl}/login`, data);
   }
 }
