@@ -1,6 +1,6 @@
 <div *ngIf="alertMsg" class="notify-alert flex items-center bg-gray-700 text-white bg-opacity-75 p-3 mt-14 rounded fixed top-0 right-0 mr-10">
     <p class="font-extralight mr-2">{{ alertMsg }}</p>
-    <button class="p-0 text-white text-sm rounded text-xs hover:text-red-400 focus:outline-none" type="button" name="button" (click)="onCloseAlert()">
+    <button class="p-0 text-white text-sm rounded hover:text-red-400 focus:outline-none" type="button" name="button" (click)="onCloseAlert()">
         <fa-icon [icon]="timesCircle"></fa-icon>
     </button>
 </div>
