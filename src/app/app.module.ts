@@ -23,6 +23,7 @@ import { UserHomeComponent } from './views/user-home/user-home.component';
 import { UserDashboardComponent } from './views/user-dashboard/user-dashboard.component';
 import { PageNotFoundComponent } from './views/page-not-found/page-not-found.component';
 import { AttendanceComponent } from './views/attendance/attendance.component';
+import { UserAttendanceComponent } from './user-attendance/user-attendance.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { AttendanceComponent } from './views/attendance/attendance.component';
     UserHomeComponent,
     UserDashboardComponent,
     PageNotFoundComponent,
-    AttendanceComponent
+    AttendanceComponent,
+    UserAttendanceComponent
   ],
   imports: [
     BrowserModule,
