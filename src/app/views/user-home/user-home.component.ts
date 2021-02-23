@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faTh, faUsers, faBars, faUser, faCog } from '@fortawesome/free-solid-svg-icons';
+import { faTh, faUsers, faBars, faUser, faCog, faCalendarCheck } from '@fortawesome/free-solid-svg-icons';
 import { UsersService } from "../../services/users.service";
 import { Router } from "@angular/router";
 
@@ -14,6 +14,7 @@ export class UserHomeComponent implements OnInit {
   userIcon = faUser;
   menuIcon = faBars;
   settingIcon = faCog;
+  attendanceIcon = faCalendarCheck;
   users: any = [];
   deleteClicked = false;
   user:any;
