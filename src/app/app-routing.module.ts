@@ -16,6 +16,7 @@ import { UserHomeComponent } from './views/user-home/user-home.component';
 import { UserDashboardComponent } from './views/user-dashboard/user-dashboard.component';
 import { PageNotFoundComponent } from './views/page-not-found/page-not-found.component';
 import { AdminGuard } from './guards/admin.guard';
+import { AttendanceComponent } from './views/attendance/attendance.component';
 
 const routes: Routes = [
   {'path': 'admin', component: HomeComponent, canActivate: [AuthGuard, AdminGuard], children: [
@@ -25,6 +26,7 @@ const routes: Routes = [
     {'path': 'users/:id', component: UserShowComponent, canActivate: [AuthGuard]},
     {'path': 'users/:id/edit', component: UserUpdateComponent, canActivate: [AuthGuard]},
     {'path': 'settings', component: SettingsComponent},
+    {'path': 'attendance', component: AttendanceComponent}
   ]},
   {'path': '', component: UserHomeComponent, canActivate: [AuthGuard], children: [
     {'path': '',   redirectTo: 'dashboard', pathMatch: 'full' },
