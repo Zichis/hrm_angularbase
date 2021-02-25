@@ -37,10 +37,6 @@ export class UsersComponent implements OnInit {
     });
   }
 
-  setInitial(user) {
-    return user.first_name.charAt(0).toUpperCase();
-  }
-
   onDelete(id: any) {
     this.deleteClicked = true;
     this.userService.getUser(id).subscribe((data: User) => {
@@ -72,7 +68,7 @@ export class UsersComponent implements OnInit {
       if (this.loggedUser.id == id) {
         this.signOut('/login');
       }
-     
+
     }, (error) => {
       if (error.status === 401) {
         window.location.href = "/login";
