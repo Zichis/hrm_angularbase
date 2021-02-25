@@ -1,6 +1,6 @@
 <div *ngIf="deleteClicked" class="flex flex-col bg-blue-100 mb-2 px-5 py-2 rounded border border-blue-500 text-blue-900 md:flex-row">
   <div>
-    <fa-icon [icon]="infoCircle"></fa-icon> Delete {{ user?.first_name }}'s account?
+    <fa-icon [icon]="infoCircle"></fa-icon> Delete {{ user?.personal.first_name }}'s account?
   </div>
   <div class="md:ml-2">
     <button class="bg-red-400 py-1 px-2 text-white text-sm rounded hover:bg-red-600 focus:outline-none" type="button" name="button" (click)="onConfirmDelete(user?.id)">Confirm</button>&nbsp;
@@ -35,11 +35,11 @@
             <td class="px-6 py-4 whitespace-nowrap">
               <div class="flex items-center">
                 <div class="flex h-10 w-10 rounded-full bg-blue-400 text-white justify-center items-center">
-                  {{ setInitial(user) }}
+                  {{ user.email | slice:0:1 | uppercase }}
                 </div>
                 <div class="ml-4">
                   <div class="text-sm font-medium">
-                    <a routerLink="{{ user.id }}" class="text-gray-500 hover:text-gray-600">{{ user.first_name }}&nbsp;{{ user.last_name }}</a>
+                    <a routerLink="{{ user.id }}" class="text-gray-500 hover:text-gray-600">{{ user.personal.first_name }}&nbsp;{{ user.personal.last_name }}</a>
                   </div>
                 </div>
               </div>
