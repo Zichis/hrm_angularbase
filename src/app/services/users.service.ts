@@ -25,7 +25,7 @@ export class UsersService {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${this.authToken}`
     });
-    return this.http.get(this.baseUrl, {'headers': headers});
+    return this.http.get(`${this.baseUrl}/users`, {'headers': headers});
   }
 
   createUser(data){
@@ -33,7 +33,7 @@ export class UsersService {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${this.authToken}`
     });
-    return this.http.post(this.baseUrl, data, {'headers': headers});
+    return this.http.post(`${this.baseUrl}/users`, data, {'headers': headers});
   }
 
   getUser(id){
