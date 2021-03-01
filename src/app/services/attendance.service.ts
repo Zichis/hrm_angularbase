@@ -14,6 +14,10 @@ export class AttendanceService {
 
   constructor(private http: HttpClient) {}
 
+  getAll() {
+    return this.http.get(`${this.baseUrl}/attendance`, {'headers': this.headers});
+  }
+
   clockIn() {
     return this.http.get(`${this.baseUrl}/attendance/clock-in`, {'headers': this.headers});
   }
