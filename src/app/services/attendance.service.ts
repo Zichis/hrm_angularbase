@@ -22,6 +22,10 @@ export class AttendanceService {
     return this.http.get(`${this.baseUrl}/attendance/clock-in`, {'headers': this.headers});
   }
 
+  clockOut() {
+    return this.http.get(`${this.baseUrl}/attendance/clock-out`, {'headers': this.headers});
+  }
+
   status() {
     return this.http.get(`${this.baseUrl}/attendance/status`, {'headers': this.headers});
   }
