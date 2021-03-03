@@ -24,6 +24,7 @@ import { UserDashboardComponent } from './views/user-dashboard/user-dashboard.co
 import { PageNotFoundComponent } from './views/page-not-found/page-not-found.component';
 import { AttendanceComponent } from './views/attendance/attendance.component';
 import { UserAttendanceComponent } from './views/user-attendance/user-attendance.component';
+import { UserSettingsComponent } from './views/user-settings/user-settings.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { UserAttendanceComponent } from './views/user-attendance/user-attendance
     UserDashboardComponent,
     PageNotFoundComponent,
     AttendanceComponent,
-    UserAttendanceComponent
+    UserAttendanceComponent,
+    UserSettingsComponent
   ],
   imports: [
     BrowserModule,
