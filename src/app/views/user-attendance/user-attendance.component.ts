@@ -19,9 +19,9 @@ export class UserAttendanceComponent implements OnInit {
       this.attendances = data;
     });
 
-    this.attendanceService.status().subscribe((data) => {
-      this.canClockIn = data['canClockIn'];
-      this.canClockOut = data['canClockOut'];
+    this.attendanceService.status().subscribe((data: {canClockIn: boolean, canClockOut: boolean}) => {
+      this.canClockIn = data.canClockIn;
+      this.canClockOut = data.canClockOut;
     });
   }
 
