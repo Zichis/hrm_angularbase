@@ -25,6 +25,7 @@ import { PageNotFoundComponent } from './views/page-not-found/page-not-found.com
 import { AttendanceComponent } from './views/attendance/attendance.component';
 import { UserAttendanceComponent } from './views/user-attendance/user-attendance.component';
 import { UserSettingsComponent } from './views/user-settings/user-settings.component';
+import { AlertComponent } from './views/shared/alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { UserSettingsComponent } from './views/user-settings/user-settings.compo
     PageNotFoundComponent,
     AttendanceComponent,
     UserAttendanceComponent,
-    UserSettingsComponent
+    UserSettingsComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
