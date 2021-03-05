@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { faTh, faUsers, faBars, faUser, faCog, faCalendarCheck } from '@fortawesome/free-solid-svg-icons';
 import { UsersService } from "../../services/users.service";
 import { Router } from "@angular/router";
+import { User } from 'src/app/models/user.model';
 
 @Component({
   selector: 'app-home',
@@ -29,8 +30,8 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.userService.getCurrentUser().subscribe((response) => {
-      this.user = response['data']['user'];
+    this.userService.getCurrentUser().subscribe((response: {message: string, data: {user: User}}) => {
+      this.user = response.data.user;
       this.userLetter = this.user.first_name.charAt(0).toUpperCase();
     }, (error) => {
       if (error.status === 401) {
