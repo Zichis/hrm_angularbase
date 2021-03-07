@@ -26,6 +26,7 @@ import { AttendanceComponent } from './views/attendance/attendance.component';
 import { UserAttendanceComponent } from './views/user-attendance/user-attendance.component';
 import { UserSettingsComponent } from './views/user-settings/user-settings.component';
 import { AlertComponent } from './views/shared/alert/alert.component';
+import { EventComponent } from './views/event/event.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { AlertComponent } from './views/shared/alert/alert.component';
     AttendanceComponent,
     UserAttendanceComponent,
     UserSettingsComponent,
-    AlertComponent
+    AlertComponent,
+    EventComponent
   ],
   imports: [
     BrowserModule,
