@@ -19,6 +19,7 @@ import { AdminGuard } from './guards/admin.guard';
 import { AttendanceComponent } from './views/attendance/attendance.component';
 import { UserAttendanceComponent } from './views/user-attendance/user-attendance.component';
 import { UserSettingsComponent } from './views/user-settings/user-settings.component';
+import { EventComponent } from './views/event/event.component';
 
 const routes: Routes = [
   {path: 'admin', component: HomeComponent, canActivate: [AuthGuard, AdminGuard], children: [
@@ -28,7 +29,8 @@ const routes: Routes = [
     {path: 'users/:id', component: UserShowComponent, canActivate: [AuthGuard]},
     {path: 'users/:id/edit', component: UserUpdateComponent, canActivate: [AuthGuard]},
     {path: 'settings', component: SettingsComponent},
-    {path: 'attendance', component: AttendanceComponent}
+    {path: 'attendance', component: AttendanceComponent},
+    {path: 'events', component: EventComponent}
   ]},
   {path: '', component: UserHomeComponent, canActivate: [AuthGuard], children: [
     {path: '',   redirectTo: 'dashboard', pathMatch: 'full' },
