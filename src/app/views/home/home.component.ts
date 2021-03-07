@@ -3,6 +3,7 @@ import { faTh, faUsers, faBars, faUser, faCog, faCalendarCheck } from '@fortawes
 import { UsersService } from "../../services/users.service";
 import { Router } from "@angular/router";
 import { User } from 'src/app/models/user.model';
+import { faBuffer } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
   selector: 'app-home',
@@ -16,6 +17,7 @@ export class HomeComponent implements OnInit {
   menuIcon = faBars;
   settingIcon = faCog;
   attendanceIcon = faCalendarCheck;
+  bufferIcon = faBuffer;
   users: any = [];
   deleteClicked = false;
   user:any;
@@ -46,7 +48,7 @@ export class HomeComponent implements OnInit {
   }
 
   onSignOut() {
-    this.userService.signOut().subscribe((response) => {
+    this.userService.signOut().subscribe(() => {
       localStorage.removeItem('baseAppToken');
       window.location.href = "/login";
     }, (error) => {
