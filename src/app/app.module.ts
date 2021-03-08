@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './views/home/home.component';
 import { WelcomeComponent } from './views/welcome/welcome.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FullCalendarModule } from '@fullcalendar/angular';
+import dayGridPlugin from '@fullcalendar/daygrid';
 import { from } from 'rxjs';
 import { LoginComponent } from './views/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -27,6 +29,10 @@ import { UserAttendanceComponent } from './views/user-attendance/user-attendance
 import { UserSettingsComponent } from './views/user-settings/user-settings.component';
 import { AlertComponent } from './views/shared/alert/alert.component';
 import { EventComponent } from './views/event/event.component';
+
+FullCalendarModule.registerPlugins([
+  dayGridPlugin
+]);
 
 @NgModule({
   declarations: [
@@ -57,7 +63,8 @@ import { EventComponent } from './views/event/event.component';
     AppRoutingModule,
     FontAwesomeModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    FullCalendarModule
   ],
   providers: [
     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
