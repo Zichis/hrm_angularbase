@@ -29,6 +29,7 @@ import { UserAttendanceComponent } from './views/user-attendance/user-attendance
 import { UserSettingsComponent } from './views/user-settings/user-settings.component';
 import { AlertComponent } from './views/shared/alert/alert.component';
 import { EventComponent } from './views/event/event.component';
+import { DepartmentComponent } from './views/department/department.component';
 
 FullCalendarModule.registerPlugins([
   dayGridPlugin
@@ -55,7 +56,8 @@ FullCalendarModule.registerPlugins([
     UserAttendanceComponent,
     UserSettingsComponent,
     AlertComponent,
-    EventComponent
+    EventComponent,
+    DepartmentComponent
   ],
   imports: [
     BrowserModule,
