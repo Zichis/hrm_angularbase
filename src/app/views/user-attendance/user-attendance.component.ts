@@ -15,8 +15,9 @@ export class UserAttendanceComponent implements OnInit {
   constructor(private attendanceService: AttendanceService) { }
 
   ngOnInit(): void {
-    this.attendanceService.getAll().subscribe((data: Attendance[]) => {
-      this.attendances = data;
+    this.attendanceService.getCurrentUserAttendance().subscribe((response: {msg: string, attendances: Attendance[]}) => {
+      this.attendances = response.attendances
+      console.log(response.attendances);
     });
 
     this.attendanceService.status().subscribe((data: {canClockIn: boolean, canClockOut: boolean}) => {

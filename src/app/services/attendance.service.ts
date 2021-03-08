@@ -14,7 +14,7 @@ export class AttendanceService {
 
   constructor(private http: HttpClient) {}
 
-  getAll() {
+  getCurrentUserAttendance() {
     return this.http.get(`${this.baseUrl}/attendance`, {'headers': this.headers});
   }
 
