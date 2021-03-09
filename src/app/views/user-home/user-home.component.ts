@@ -9,12 +9,8 @@ import { Router } from "@angular/router";
   styleUrls: ['./user-home.component.scss']
 })
 export class UserHomeComponent implements OnInit {
-  th = faTh;
   usersIcon = faUsers;
-  userIcon = faUser;
   menuIcon = faBars;
-  settingIcon = faCog;
-  attendanceIcon = faCalendarCheck;
   users: any = [];
   deleteClicked = false;
   user:any;
@@ -69,10 +65,6 @@ export class UserHomeComponent implements OnInit {
 
   onBodyClick() {
     this.dropdownClicked = false;
-  }
-
-  onCloseSideMenu() {
-    this.sideMenuOpen = false;
   }
 
   // Getters
