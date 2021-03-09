@@ -21,6 +21,7 @@ import { UserAttendanceComponent } from './views/user-attendance/user-attendance
 import { UserSettingsComponent } from './views/user-settings/user-settings.component';
 import { EventComponent } from './views/event/event.component';
 import { DepartmentComponent } from './views/department/department.component';
+import { DepartmentCreateComponent } from './views/department-create/department-create.component';
 
 const routes: Routes = [
   {path: 'admin', component: HomeComponent, canActivate: [AuthGuard, AdminGuard], children: [
@@ -32,7 +33,8 @@ const routes: Routes = [
     {path: 'settings', component: SettingsComponent},
     {path: 'attendance', component: AttendanceComponent},
     {path: 'events', component: EventComponent},
-    {path: 'departments', component: DepartmentComponent}
+    {path: 'departments', component: DepartmentComponent},
+    {path: 'departments/create', component: DepartmentCreateComponent}
   ]},
   {path: '', component: UserHomeComponent, canActivate: [AuthGuard], children: [
     {path: '',   redirectTo: 'dashboard', pathMatch: 'full' },
