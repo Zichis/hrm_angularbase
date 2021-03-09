@@ -1,0 +1,15 @@
+.sidemenu {
+  width: 320px;
+  left: -320px;
+  transition: margin 200ms linear 200ms, left 200ms linear 200ms;
+}
+
+.open {
+  margin-left: 0;
+  left: 0
+}
+
+.close {
+  margin-left: -320px;
+  left: -320px;
+}
