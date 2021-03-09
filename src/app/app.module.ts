@@ -30,6 +30,7 @@ import { UserSettingsComponent } from './views/user-settings/user-settings.compo
 import { AlertComponent } from './views/shared/alert/alert.component';
 import { EventComponent } from './views/event/event.component';
 import { DepartmentComponent } from './views/department/department.component';
+import { SideMenuComponent } from './views/shared/side-menu/side-menu.component';
 
 FullCalendarModule.registerPlugins([
   dayGridPlugin
@@ -57,7 +58,8 @@ FullCalendarModule.registerPlugins([
     UserSettingsComponent,
     AlertComponent,
     EventComponent,
-    DepartmentComponent
+    DepartmentComponent,
+    SideMenuComponent
   ],
   imports: [
     BrowserModule,
