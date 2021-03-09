@@ -30,6 +30,7 @@ export class UserAttendanceComponent implements OnInit {
     this.attendanceService.clockIn().subscribe((data: {msg: string, attendances: Attendance[]}) => {
       if (data.msg == 'Success') {
         this.canClockIn = false;
+        this.canClockOut = true;
         this.attendances = data.attendances;
       }
     });
