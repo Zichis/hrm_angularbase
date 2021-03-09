@@ -11,14 +11,8 @@ import { faBuffer } from '@fortawesome/free-brands-svg-icons';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  th = faTh;
-  usersIcon = faUsers;
   userIcon = faUser;
   menuIcon = faBars;
-  settingIcon = faCog;
-  attendanceIcon = faCalendarCheck;
-  bufferIcon = faBuffer;
-  departmentIcon = faBuilding;
   users: any = [];
   deleteClicked = false;
   user:any;
@@ -66,10 +60,6 @@ export class HomeComponent implements OnInit {
 
   onBodyClick() {
     this.dropdownClicked = false;
-  }
-
-  onCloseSideMenu() {
-    this.sideMenuOpen = false;
   }
 
   // Getters

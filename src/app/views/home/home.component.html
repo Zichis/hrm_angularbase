@@ -1,38 +1,5 @@
 <div class="wrapper" class="bg-dark-gray flex">
-    <div class="bg-gray-700 min-h-screen sidemenu fixed z-10 md:relative" [ngClass]="sideMenuOpen ? 'open' : 'close'">
-        <div>
-          <h1 class="bg-black bg-opacity-20 border-b-2 border-gray-600 p-5 text-center text-lg font-bold text-gray-100">COMPANY</h1>
-        </div>
-        <div class="p-2 text-right md:hidden">
-          <button class="bg-red-400 text-white px-1 rounded hover:bg-red-600" type="button" (click)="onCloseSideMenu()">Close</button>
-        </div>
-        <div class="mt-5">
-          <a routerLink="/admin" routerLinkActive="text-blue-400" [routerLinkActiveOptions]="{exact: true}" class="flex py-2 px-10 text-white hover:text-blue-400">
-            <fa-icon [icon]="th"></fa-icon>
-            <span class="pl-2">DASHBOARD</span>
-          </a>
-          <a routerLink="users" routerLinkActive="text-blue-400" [routerLinkActiveOptions]="{exact: true}" class="flex py-2 px-10 text-white hover:text-blue-400">
-            <fa-icon [icon]="usersIcon"></fa-icon>
-            <span class="pl-2">USERS</span>
-          </a>
-          <a routerLink="departments" routerLinkActive="text-blue-400" [routerLinkActiveOptions]="{exact: true}" class="flex py-2 px-10 text-white hover:text-blue-400">
-            <fa-icon [icon]="departmentIcon"></fa-icon>
-            <span class="pl-2">DEPARTMENTS</span>
-          </a>
-          <a routerLink="attendance" routerLinkActive="text-blue-400" [routerLinkActiveOptions]="{exact: true}" class="flex py-2 px-10 text-white hover:text-blue-400">
-            <fa-icon [icon]="attendanceIcon"></fa-icon>
-            <span class="pl-2">ATTENDANCE</span>
-          </a>
-          <a routerLink="events" routerLinkActive="text-blue-400" [routerLinkActiveOptions]="{exact: true}" class="flex py-2 px-10 text-white hover:text-blue-400">
-            <fa-icon [icon]="bufferIcon"></fa-icon>
-            <span class="pl-2">EVENTS</span>
-          </a>
-          <a routerLink="settings" routerLinkActive="text-blue-400" [routerLinkActiveOptions]="{exact: true}" class="flex py-2 px-10 text-white hover:text-blue-400">
-            <fa-icon [icon]="settingIcon"></fa-icon>
-            <span class="pl-2">SETTINGS</span>
-          </a>
-        </div>
-    </div>
+    <app-side-menu [sideMenuOpen]="sideMenuOpen"></app-side-menu>
     <div class="flex flex-col flex-1 bg-grey-100 main-content">
       <div class="p-5 bg-gray-50 border-b-2 border-fuchsia-600 flex justify-between">
         <div class="flex">
