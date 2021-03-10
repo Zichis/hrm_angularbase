@@ -21,4 +21,12 @@ export class DepartmentService {
     });
     return this.http.get(`${this.baseUrl}/admin/departments`, {'headers': headers});
   }
+
+  createDepartment(data){
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${this.authToken}`
+    });
+    return this.http.post(`${this.baseUrl}/admin/departments`, data, {'headers': headers});
+  }
 }
