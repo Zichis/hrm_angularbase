@@ -29,4 +29,8 @@ export class DepartmentService {
     });
     return this.http.post(`${this.baseUrl}/admin/departments`, data, {'headers': headers});
   }
+
+  getDepartment(id){
+    return this.http.get(`${this.baseUrl}/admin/departments/${id}`, {'headers': this.headers});
+  }
 }
