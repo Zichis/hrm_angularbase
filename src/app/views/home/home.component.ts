@@ -3,7 +3,6 @@ import { faTh, faUsers, faBars, faUser, faCog, faCalendarCheck, faBuilding } fro
 import { UsersService } from "../../services/users.service";
 import { Router } from "@angular/router";
 import { User } from 'src/app/models/user.model';
-import { faBuffer } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
   selector: 'app-home',
