@@ -34,6 +34,7 @@ import { SideMenuComponent } from './views/shared/side-menu/side-menu.component'
 import { UserSideMenuComponent } from './views/shared/user-side-menu/user-side-menu.component';
 import { DepartmentCreateComponent } from './views/department-create/department-create.component';
 import { DepartmentShowComponent } from './views/department-show/department-show.component';
+import { DepartmentUpdateComponent } from './views/department-update/department-update.component';
 
 FullCalendarModule.registerPlugins([
   dayGridPlugin
@@ -65,7 +66,8 @@ FullCalendarModule.registerPlugins([
     SideMenuComponent,
     UserSideMenuComponent,
     DepartmentCreateComponent,
-    DepartmentShowComponent
+    DepartmentShowComponent,
+    DepartmentUpdateComponent
   ],
   imports: [
     BrowserModule,
