@@ -33,4 +33,12 @@ export class DepartmentService {
   getDepartment(id){
     return this.http.get(`${this.baseUrl}/admin/departments/${id}`, {'headers': this.headers});
   }
+
+  updateDepartment(data, id){
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${this.authToken}`
+    });
+    return this.http.put(`${this.baseUrl}/admin/departments/${id}`, data, {'headers': headers});
+  }
 }
