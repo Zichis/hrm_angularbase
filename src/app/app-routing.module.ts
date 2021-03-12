@@ -23,6 +23,7 @@ import { EventComponent } from './views/event/event.component';
 import { DepartmentComponent } from './views/department/department.component';
 import { DepartmentCreateComponent } from './views/department-create/department-create.component';
 import { DepartmentShowComponent } from './views/department-show/department-show.component';
+import { DepartmentUpdateComponent } from './views/department-update/department-update.component';
 
 const routes: Routes = [
   {path: 'admin', component: HomeComponent, canActivate: [AuthGuard, AdminGuard], children: [
@@ -37,6 +38,7 @@ const routes: Routes = [
     {path: 'departments', component: DepartmentComponent},
     {path: 'departments/create', component: DepartmentCreateComponent},
     {path: 'departments/:id', component: DepartmentShowComponent},
+    {path: 'departments/:id/edit', component: DepartmentUpdateComponent}
   ]},
   {path: '', component: UserHomeComponent, canActivate: [AuthGuard], children: [
     {path: '',   redirectTo: 'dashboard', pathMatch: 'full' },
