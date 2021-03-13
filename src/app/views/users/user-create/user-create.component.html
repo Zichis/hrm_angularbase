@@ -27,6 +27,15 @@
         <p class="text-red-400">{{ lastNameError }}</p>
         <span *ngIf="lastName.invalid && lastName.touched" class="text-red-400">Wrong last name input</span>
       </div>
+      <div class="mb-2">
+        <label for="department_id" class="block text-sm font-medium text-gray-700">Department</label>
+        <select class="border-solid border-2 p-1 w-full rounded focus:shadow-sm focus:outline-none focus:border-gray-300" formControlName="department_id">
+          <option value="" disabled>Select Department</option>
+          <option *ngFor="let department of departments" [ngValue]="department.id">{{department.name}}</option>
+       </select>
+        <p class="text-red-400">{{ departmentIdError }}</p>
+        <span *ngIf="departmentId.invalid && departmentId.touched" class="text-red-400">Select a department</span>
+      </div>
       <div class="mb-2 p-2 border-2 border-red-200 rounded">
         <label for="admin" class="block text-sm font-medium text-gray-700">Roles</label>
         <input type="checkbox" formControlName="admin"> Admin
