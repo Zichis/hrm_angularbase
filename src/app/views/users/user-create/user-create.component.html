@@ -55,8 +55,10 @@
           </div>
         </div>
       <!-- Professional section ends -->
-      <button type="submit" [disabled]="createForm.invalid" class="nline-block bg-blue-400 py-1 px-3 text-white hover:bg-blue-600 rounded" name="button">Add</button>&nbsp;
-      <a routerLink="/admin/users" class="inline-block bg-gray-400 py-1 px-3 text-white hover:bg-gray-600 rounded">Cancel</a>
+      <div class="p-2">
+        <button type="submit" [disabled]="createForm.invalid" [ngClass]="createForm.valid ? 'bg-blue-500 hover:bg-blue-600':'bg-blue-300 cursor-not-allowed'" class="py-1 px-3 text-white rounded" name="button">Add</button>&nbsp;
+        <a routerLink="/admin/users" class="inline-block bg-gray-400 py-1 px-3 text-white hover:bg-gray-600 rounded">Cancel</a>
+      </div>
     </form>
   </div>
 </div>
