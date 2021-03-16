@@ -1,22 +1,47 @@
-<div class="border shadow-md rounded md:w-1/2 lg:w-2/5">
+<div class="border shadow-md rounded md:w-2/3 lg:w-full">
   <h2 class="p-3 text-2xl md:px-5">Update user</h2>
   <hr>
   <div class="p-3 md:px-5">
     <form [formGroup]="updateForm" (ngSubmit)="onUpdate()">
-      <div class="mb-2">
-        <label for="first_name" class="block text-sm font-medium text-gray-700">First name</label>
-        <input class="border-solid border-2 p-1 w-full rounded focus:shadow-sm focus:outline-none focus:border-gray-300" type="text" formControlName="first_name" placeholder="Enter first name" required>
-        <p class="text-red-400">{{ firstNameError }}</p>
-        <span *ngIf="firstName.invalid && firstName.touched" class="text-red-400">Wrong first name input</span>
+      <!-- Personal section starts -->
+      <h3 class="p-2 text-gray-400">Personal Information</h3>
+      <div class="flex flex-wrap">
+        <div class="w-full mb-2 p-2 md:w-1/2 lg:w-1/3">
+          <label for="first_name" class="block text-sm font-medium text-gray-700">First name</label>
+          <input class="border-solid border-2 p-1 w-full rounded focus:shadow-sm focus:outline-none focus:border-gray-300" type="text" formControlName="first_name" placeholder="Enter first name" required>
+          <p class="text-red-400">{{ firstNameError }}</p>
+          <span *ngIf="firstName.invalid && firstName.touched" class="text-red-400">Wrong first name input</span>
+        </div>
+        <div class="w-full mb-2 p-2 md:w-1/2 lg:w-1/3">
+          <label for="last_name" class="block text-sm font-medium text-gray-700">Last name</label>
+          <input type="text" class="border-solid border-2 p-1 w-full rounded focus:shadow-sm focus:outline-none focus:border-gray-300" formControlName="last_name" placeholder="Enter last name" required>
+          <p class="text-red-400">{{ lastNameError }}</p>
+          <span *ngIf="lastName.invalid && lastName.touched" class="text-red-400">Wrong last name input</span>
+        </div>
       </div>
-      <div class="mb-2">
-        <label for="last_name" class="block text-sm font-medium text-gray-700">Last name</label>
-        <input type="text" class="border-solid border-2 p-1 w-full rounded focus:shadow-sm focus:outline-none focus:border-gray-300" formControlName="last_name" placeholder="Enter last name" required>
-        <p class="text-red-400">{{ lastNameError }}</p>
-        <span *ngIf="lastName.invalid && lastName.touched" class="text-red-400">Wrong last name input</span>
+      <!-- Personal section ends -->
+      <!-- Professional section starts -->
+        <h3 class="p-2 text-gray-400">Professional Information</h3>
+        <div class="flex flex-wrap">
+          <div class="w-full mb-2 p-2 md:w-1/2 lg:w-1/3">
+            <label for="department_id" class="block text-sm font-medium text-gray-700">Department</label>
+            <select class="border-solid border-2 p-1 w-full rounded focus:shadow-sm focus:outline-none focus:border-gray-300" formControlName="department_id">
+              <!--<option value="" disabled>Select Department</option>-->
+              <option *ngFor="let department of departments" [ngValue]="department.id">{{department.name}}</option>
+            </select>
+            <p class="text-red-400">{{ departmentIdError }}</p>
+            <span *ngIf="departmentId.invalid && departmentId.touched" class="text-red-400">Select a department</span>
+          </div>
+          <div class="w-full mb-2 p-2 md:w-1/2 lg:w-1/3 border-2 border-red-200 rounded">
+            <label for="admin" class="block text-sm font-medium text-gray-700">Roles</label>
+            <input type="checkbox" formControlName="admin"> Admin
+          </div>
+        </div>
+      <!-- Professional section ends -->
+      <div class="p-2">
+        <button type="submit" [disabled]="updateForm.invalid" class="inline-block bg-blue-400 py-1 px-3 text-white hover:bg-blue-600 rounded" name="button">Update</button>&nbsp;
+        <a routerLink="/admin/users" class="inline-block bg-gray-400 py-1 px-3 text-white hover:bg-gray-600 rounded">Cancel</a>
       </div>
-      <button type="submit" [disabled]="updateForm.invalid" class="inline-block bg-blue-400 py-1 px-3 text-white hover:bg-blue-600 rounded" name="button">Update</button>&nbsp;
-      <a routerLink="/admin/users" class="inline-block bg-gray-400 py-1 px-3 text-white hover:bg-gray-600 rounded">Cancel</a>
     </form>
   </div>
 </div>
