@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from '../../../services/users.service';
 import { ActivatedRoute } from '@angular/router';
+import { User } from 'src/app/models/user.model';
 
 @Component({
   selector: 'app-user-show',
@@ -8,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./user-show.component.scss']
 })
 export class UserShowComponent implements OnInit {
-  user: any;
+  user: User;
   userLetter: string;
 
   constructor(
@@ -18,9 +19,8 @@ export class UserShowComponent implements OnInit {
 
   ngOnInit(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.usersService.getUser(id).subscribe((data) => {
-      this.user = data;
-      this.userLetter = this.user.first_name.charAt(0).toUpperCase();
+    this.usersService.getUser(id).subscribe((user: User) => {
+      this.user = user;
     }, (error) => {
         localStorage.setItem('baseAppAlert', `User not found!`);
         window.location.href = '/admin/users';
