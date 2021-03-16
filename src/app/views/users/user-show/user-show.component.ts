@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UsersService } from '../../../services/users.service';
 import { ActivatedRoute } from '@angular/router';
 import { User } from 'src/app/models/user.model';
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-user-show',
@@ -11,6 +12,7 @@ import { User } from 'src/app/models/user.model';
 export class UserShowComponent implements OnInit {
   user: User;
   userLetter: string;
+  backArrowIcon = faChevronLeft;
 
   constructor(
     private usersService: UsersService,
