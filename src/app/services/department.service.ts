@@ -41,4 +41,8 @@ export class DepartmentService {
     });
     return this.http.put(`${this.baseUrl}/admin/departments/${id}`, data, {'headers': headers});
   }
+
+  deleteDepartment(id){
+    return this.http.delete(`${this.baseUrl}/admin/departments/${id}`, {'headers': this.headers});
+  }
 }
