@@ -1,3 +1,9 @@
+<div *ngIf="alertMsg" class="notify-alert flex items-center bg-gray-700 text-white bg-opacity-75 p-3 mt-14 rounded fixed top-0 right-0 mr-10">
+  <p class="font-extralight mr-2">{{ alertMsg }}</p>
+  <button class="p-0 text-white text-sm rounded hover:text-red-400 focus:outline-none" type="button" name="button" (click)="onCloseAlert()">
+    <fa-icon [icon]="timesCircle"></fa-icon>
+  </button>
+</div>
 <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
   <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
     <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
@@ -35,8 +41,8 @@
               </div>
             </td>
             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-              <a routerLink="{{ department.id }}/edit" class="text-blue-400 hover:text-blue-700">Edit</a>&nbsp;
-              <button (click)="onDeleteDepartment(department.id)" class="text-red-400 hover:text-red-700 focus:outline-none focus:text-red-700">Delete</button>
+              <a routerLink="{{ department.id }}/edit" class="text-blue-400 hover:text-blue-700"><fa-icon [icon]="edit"></fa-icon></a>&nbsp;
+              <button (click)="onDeleteDepartment(department.id)" class="text-red-400 hover:text-red-700 focus:outline-none focus:text-red-700"><fa-icon [icon]="trash"></fa-icon></button>
             </td>
           </tr>
         </tbody>
