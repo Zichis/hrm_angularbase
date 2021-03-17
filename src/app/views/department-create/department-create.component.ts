@@ -28,7 +28,7 @@ export class DepartmentCreateComponent implements OnInit {
   onCreate(): void {
     console.log(this.createDepartmentForm.value);
     this.departmentService.createDepartment(this.createDepartmentForm.value).subscribe((data) => {
-      //localStorage.setItem('baseAppAlert', `New department created!`);
+      localStorage.setItem('baseAppAlert', `New department created!`);
       this.router.navigate(['/admin/departments']);
     }, (error) => {
         // Handle error!
