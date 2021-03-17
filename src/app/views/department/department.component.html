@@ -36,7 +36,7 @@
             </td>
             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
               <a routerLink="{{ department.id }}/edit" class="text-blue-400 hover:text-blue-700">Edit</a>&nbsp;
-              <button class="text-red-400 hover:text-red-700 focus:outline-none focus:text-red-700">Delete</button>
+              <button (click)="onDeleteDepartment(department.id)" class="text-red-400 hover:text-red-700 focus:outline-none focus:text-red-700">Delete</button>
             </td>
           </tr>
         </tbody>

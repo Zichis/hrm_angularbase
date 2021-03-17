@@ -17,4 +17,8 @@ export class DepartmentComponent implements OnInit {
     });
   }
 
+  onDeleteDepartment(id: number) {
+    console.log(id);
+  }
+
 }
