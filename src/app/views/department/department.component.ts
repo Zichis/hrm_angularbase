@@ -16,12 +16,12 @@ export class DepartmentComponent implements OnInit {
   alertMsg = localStorage.getItem('baseAppAlert');
   deleteClicked: boolean = false;
   department: Department;
-  departments;
+  departments: Department[];
 
   constructor(private departmentService: DepartmentService) { }
 
   ngOnInit(): void {
-    this.departmentService.getDepartments().subscribe((departments) => {
+    this.departmentService.getDepartments().subscribe((departments: Department[]) => {
       this.departments = departments;
     });
   }
