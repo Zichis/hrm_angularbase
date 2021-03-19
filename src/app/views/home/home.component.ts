@@ -28,7 +28,6 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.userService.getCurrentUser().subscribe((response: {message: string, data: {user: User}}) => {
       this.user = response.data.user;
-      this.userLetter = this.user.first_name.charAt(0).toUpperCase();
     }, (error) => {
       if (error.status === 401) {
         //this.router.navigate(['/login']);
