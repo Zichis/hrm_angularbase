@@ -15,7 +15,7 @@
 </div>
 <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
   <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-    <div *ngIf="departments.length > 0; else createDepartment" class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+    <div *ngIf="departments?.length > 0; else createDepartment" class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
       <table class="min-w-full divide-y divide-gray-200">
         <thead class="bg-gray-50">
           <tr>
@@ -58,7 +58,7 @@
       </table>
     </div>
     <ng-template #createDepartment>
-      <p class="text-gray-500">Create department <a routerLink="create" class="text-blue-400 hover:text-blue-500">here</a>.</p>
+      <p class="text-gray-500 font-thin">Create department <a routerLink="create" class="text-blue-400 hover:text-blue-500">here</a>.</p>
     </ng-template>
   </div>
 </div>

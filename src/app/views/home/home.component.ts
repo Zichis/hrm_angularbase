@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
   menuIcon = faBars;
   users: any = [];
   deleteClicked = false;
-  user:any;
+  user: User;
   userLetter:any;
   dropdownClicked = false;
   today: number = Date.now();
