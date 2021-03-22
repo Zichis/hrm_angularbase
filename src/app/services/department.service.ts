@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Department } from '../models/department.model';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +23,7 @@ export class DepartmentService {
     return this.http.get(`${this.baseUrl}/admin/departments`, {'headers': headers});
   }
 
-  createDepartment(data){
+  createDepartment(data: Department){
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${this.authToken}`
@@ -34,7 +35,7 @@ export class DepartmentService {
     return this.http.get(`${this.baseUrl}/admin/departments/${id}`, {'headers': this.headers});
   }
 
-  updateDepartment(data, id){
+  updateDepartment(data: Department, id: number){
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${this.authToken}`
@@ -42,7 +43,7 @@ export class DepartmentService {
     return this.http.put(`${this.baseUrl}/admin/departments/${id}`, data, {'headers': headers});
   }
 
-  deleteDepartment(id){
+  deleteDepartment(id: number){
     return this.http.delete(`${this.baseUrl}/admin/departments/${id}`, {'headers': this.headers});
   }
 }
