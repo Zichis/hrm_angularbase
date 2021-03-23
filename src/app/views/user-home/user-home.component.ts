@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { faTh, faUsers, faBars, faUser, faCog, faCalendarCheck } from '@fortawesome/free-solid-svg-icons';
 import { UsersService } from "../../services/users.service";
 import { Router } from "@angular/router";
+import { User } from 'src/app/models/user.model';
 
 @Component({
   selector: 'app-user-home',
@@ -13,7 +14,7 @@ export class UserHomeComponent implements OnInit {
   menuIcon = faBars;
   users: any = [];
   deleteClicked = false;
-  user:any;
+  user:User;
   userLetter:any;
   dropdownClicked = false;
   today: number = Date.now();
@@ -26,8 +27,8 @@ export class UserHomeComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.userService.getCurrentUser().subscribe((response) => {
-      this.user = response['data']['user'];
+    this.userService.getCurrentUser().subscribe((response: {data: {user: User}}) => {
+      this.user = response.data.user;
     }, (error) => {
       if (error.status === 401) {
         //this.router.navigate(['/login']);
