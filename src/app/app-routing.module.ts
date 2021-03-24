@@ -28,10 +28,12 @@ const routes: Routes = [
     {path: 'settings', component: SettingsComponent},
     {path: 'attendance', component: AttendanceComponent},
     {path: 'events', component: EventComponent},
-    {path: 'departments', component: DepartmentComponent},
-    {path: 'departments/create', component: DepartmentCreateComponent},
-    {path: 'departments/:id', component: DepartmentShowComponent},
-    {path: 'departments/:id/edit', component: DepartmentUpdateComponent}
+    {path: 'departments', children: [
+      {path: '', component: DepartmentComponent},
+      {path: 'create', component: DepartmentCreateComponent},
+      {path: ':id/edit', component: DepartmentUpdateComponent},
+      {path: ':id', component: DepartmentShowComponent}
+    ]},
   ]},
   {path: '', component: UserHomeComponent, canActivate: [AuthGuard], children: [
     {path: '',   redirectTo: 'dashboard', pathMatch: 'full' },
