@@ -26,8 +26,8 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.usersService.numberOfUsers().subscribe((response) => {
-      if (response['data']['users'] == 0) {
+    this.usersService.numberOfUsers().subscribe((response: {data: {users: any}}) => {
+      if (response.data.users == 0) {
         window.location.href = "/onboarding";
       }
       this.ready = true;
