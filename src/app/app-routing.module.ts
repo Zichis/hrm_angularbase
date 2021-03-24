@@ -3,12 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './views/home/home.component';
 import { WelcomeComponent } from './views/welcome/welcome.component';
 import { LoginComponent} from './views/login/login.component';
-import { UserCreateComponent } from './views/users/user-create/user-create.component';
-import { UserShowComponent } from './views/users/user-show/user-show.component';
-import { UserUpdateComponent } from "./views/users/user-update/user-update.component";
 import { AuthGuard } from "./guards/auth.guard";
 import { DashboardComponent } from './views/dashboard/dashboard.component';
-import { UsersComponent } from './views/users/users/users.component';
 import { OnboardingComponent } from './views/onboarding/onboarding.component';
 import { ProfileComponent } from './views/profile/profile.component';
 import { SettingsComponent } from './views/settings/settings.component';
@@ -24,17 +20,11 @@ import { DepartmentComponent } from './views/department/department.component';
 import { DepartmentCreateComponent } from './views/department-create/department-create.component';
 import { DepartmentShowComponent } from './views/department-show/department-show.component';
 import { DepartmentUpdateComponent } from './views/department-update/department-update.component';
-import { UserListComponent } from './views/users/user-list/user-list.component';
 
 const routes: Routes = [
   {path: 'admin', component: HomeComponent, canActivate: [AuthGuard, AdminGuard], children: [
     {path: '', component: DashboardComponent},
-    {path: 'users', component: UsersComponent, children: [
-      {path: '', component: UserListComponent},
-      {path: 'create', component: UserCreateComponent},
-      {path: ':id/edit', component: UserUpdateComponent},
-      {path: ':id', component: UserShowComponent},
-    ]},
+    {path: 'users', loadChildren: () => import('./views/users/users.module').then(m => m.UsersModule)},
     {path: 'settings', component: SettingsComponent},
     {path: 'attendance', component: AttendanceComponent},
     {path: 'events', component: EventComponent},
