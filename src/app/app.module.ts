@@ -12,9 +12,6 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import { from } from 'rxjs';
 import { LoginComponent } from './views/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { UserCreateComponent } from './views/users/user-create/user-create.component';
-import { UserShowComponent } from './views/users/user-show/user-show.component';
-import { UserUpdateComponent } from './views/users/user-update/user-update.component';
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { DashboardComponent } from './views/dashboard/dashboard.component';
 import { UsersComponent } from './views/users/users/users.component';
@@ -35,7 +32,6 @@ import { UserSideMenuComponent } from './views/shared/user-side-menu/user-side-m
 import { DepartmentCreateComponent } from './views/department-create/department-create.component';
 import { DepartmentShowComponent } from './views/department-show/department-show.component';
 import { DepartmentUpdateComponent } from './views/department-update/department-update.component';
-import { UserListComponent } from './views/users/user-list/user-list.component';
 
 FullCalendarModule.registerPlugins([
   dayGridPlugin
@@ -47,9 +43,6 @@ FullCalendarModule.registerPlugins([
     HomeComponent,
     WelcomeComponent,
     LoginComponent,
-    UserCreateComponent,
-    UserShowComponent,
-    UserUpdateComponent,
     DashboardComponent,
     UsersComponent,
     OnboardingComponent,
@@ -68,8 +61,7 @@ FullCalendarModule.registerPlugins([
     UserSideMenuComponent,
     DepartmentCreateComponent,
     DepartmentShowComponent,
-    DepartmentUpdateComponent,
-    UserListComponent
+    DepartmentUpdateComponent
   ],
   imports: [
     BrowserModule,
