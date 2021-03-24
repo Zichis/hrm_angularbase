@@ -39,12 +39,12 @@ export class UserUpdateComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('id');
     this.usersService.getUser(id).subscribe((data: User) => {
       this.user = data;
-      let isAdmin = this.user.roles.find(role => role.id === 1);
+      let adminRole = this.user.roles.find(role => role.id === 1);
       this.updateForm.patchValue({
         first_name: this.user.personal.first_name,
         last_name: this.user.personal.last_name,
         department_id: this.user.department_id,
-        admin: isAdmin
+        admin: adminRole != null
       });
     }, (error) => {
         //
