@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/models/user.model';
 import { UsersService } from 'src/app/services/users.service';
 
 @Component({
@@ -13,9 +14,10 @@ export class ProfileComponent implements OnInit {
   constructor(private usersService: UsersService) { }
 
   ngOnInit(): void {
-    this.usersService.getCurrentUser().subscribe((data) => {
-      this.user = data['data']['user'];
-      this.userLetter = this.user.first_name.charAt(0).toUpperCase();
+    this.usersService.getCurrentUser().subscribe((response: {data: {user: User}}) => {
+      console.log(response);
+      this.user = response.data.user;
+      //this.userLetter = this.user.first_name.charAt(0).toUpperCase();
     }, (error) => {
         //
       }
