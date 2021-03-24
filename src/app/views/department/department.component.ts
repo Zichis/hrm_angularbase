@@ -50,9 +50,9 @@ export class DepartmentComponent implements OnInit {
   }
 
   onConfirmDelete(id: any) {
-    this.departmentService.deleteDepartment(id).subscribe((response) => {
+    this.departmentService.deleteDepartment(id).subscribe((response: {data: {departments: Department[]}}) => {
       this.deleteClicked = false;
-      this.departments = response['data']['departments'];
+      this.departments = response.data.departments;
       localStorage.setItem('baseAppAlert', `Department deleted.`);
       this.alertMsg = localStorage.getItem('baseAppAlert');
 
