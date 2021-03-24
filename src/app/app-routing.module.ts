@@ -24,14 +24,17 @@ import { DepartmentComponent } from './views/department/department.component';
 import { DepartmentCreateComponent } from './views/department-create/department-create.component';
 import { DepartmentShowComponent } from './views/department-show/department-show.component';
 import { DepartmentUpdateComponent } from './views/department-update/department-update.component';
+import { UserListComponent } from './views/users/user-list/user-list.component';
 
 const routes: Routes = [
   {path: 'admin', component: HomeComponent, canActivate: [AuthGuard, AdminGuard], children: [
     {path: '', component: DashboardComponent},
-    {path: 'users', component: UsersComponent},
-    {path: 'users/create', component: UserCreateComponent},
-    {path: 'users/:id', component: UserShowComponent, canActivate: [AuthGuard]},
-    {path: 'users/:id/edit', component: UserUpdateComponent, canActivate: [AuthGuard]},
+    {path: 'users', component: UsersComponent, children: [
+      {path: '', component: UserListComponent},
+      {path: 'create', component: UserCreateComponent},
+      {path: ':id/edit', component: UserUpdateComponent},
+      {path: ':id', component: UserShowComponent},
+    ]},
     {path: 'settings', component: SettingsComponent},
     {path: 'attendance', component: AttendanceComponent},
     {path: 'events', component: EventComponent},
