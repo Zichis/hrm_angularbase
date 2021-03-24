@@ -14,8 +14,8 @@ export class AdminGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return this.usersService.getRoles().pipe(map((response: any) => {
-      if (response['data']['roles'].includes('ROLE_ADMIN')) {
+    return this.usersService.getRoles().pipe(map((response: {data: {roles: any[]}}) => {
+      if (response.data.roles.includes('ROLE_ADMIN')) {
         return true;
       }
       localStorage.setItem('baseAppAlert', `Not authorized!`);
@@ -23,5 +23,5 @@ export class AdminGuard implements CanActivate {
       return false;
     }));
   }
-  
+
 }
