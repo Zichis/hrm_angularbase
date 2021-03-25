@@ -16,10 +16,6 @@ import { AttendanceComponent } from './views/attendance/attendance.component';
 import { UserAttendanceComponent } from './views/user-attendance/user-attendance.component';
 import { UserSettingsComponent } from './views/user-settings/user-settings.component';
 import { EventComponent } from './views/event/event.component';
-import { DepartmentComponent } from './views/departments/department/department.component';
-import { DepartmentCreateComponent } from './views/departments/department-create/department-create.component';
-import { DepartmentShowComponent } from './views/departments/department-show/department-show.component';
-import { DepartmentUpdateComponent } from './views/departments/department-update/department-update.component';
 
 const routes: Routes = [
   {path: 'admin', component: HomeComponent, canActivate: [AuthGuard, AdminGuard], children: [
@@ -28,12 +24,7 @@ const routes: Routes = [
     {path: 'settings', component: SettingsComponent},
     {path: 'attendance', component: AttendanceComponent},
     {path: 'events', component: EventComponent},
-    {path: 'departments', children: [
-      {path: '', component: DepartmentComponent},
-      {path: 'create', component: DepartmentCreateComponent},
-      {path: ':id/edit', component: DepartmentUpdateComponent},
-      {path: ':id', component: DepartmentShowComponent}
-    ]},
+    { path: 'departments', loadChildren: () => import('./views/departments/departments.module').then(m => m.DepartmentsModule) }
   ]},
   {path: '', component: UserHomeComponent, canActivate: [AuthGuard], children: [
     {path: '',   redirectTo: 'dashboard', pathMatch: 'full' },
