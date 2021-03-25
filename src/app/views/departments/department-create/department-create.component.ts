@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { DepartmentService } from 'src/app/services/department.service';
 
 @Component({
@@ -9,6 +10,7 @@ import { DepartmentService } from 'src/app/services/department.service';
   styleUrls: ['./department-create.component.scss']
 })
 export class DepartmentCreateComponent implements OnInit {
+  backArrowIcon = faChevronLeft;
   createDepartmentForm = this.fb.group({
     name: ['', [Validators.required]]
   });
