@@ -18,25 +18,25 @@ import { UserSettingsComponent } from './views/user-settings/user-settings.compo
 import { EventComponent } from './views/event/event.component';
 
 const routes: Routes = [
-  {path: 'admin', component: HomeComponent, canActivate: [AuthGuard, AdminGuard], children: [
-    {path: '', component: DashboardComponent},
-    {path: 'users', loadChildren: () => import('./views/users/users.module').then(m => m.UsersModule)},
-    {path: 'settings', component: SettingsComponent},
-    {path: 'attendance', component: AttendanceComponent},
-    {path: 'events', component: EventComponent},
+  { path: 'admin', component: HomeComponent, canActivate: [AuthGuard, AdminGuard], children: [
+    { path: '', component: DashboardComponent },
+    { path: 'users', loadChildren: () => import('./views/users/users.module').then(m => m.UsersModule) },
+    { path: 'settings', component: SettingsComponent },
+    { path: 'attendance', component: AttendanceComponent },
+    { path: 'events', component: EventComponent },
     { path: 'departments', loadChildren: () => import('./views/departments/departments.module').then(m => m.DepartmentsModule) }
   ]},
-  {path: '', component: UserHomeComponent, canActivate: [AuthGuard], children: [
-    {path: '',   redirectTo: 'dashboard', pathMatch: 'full' },
-    {path: 'profile', component: ProfileComponent},
-    {path: 'attendance', component: UserAttendanceComponent},
-    {path: 'dashboard', component: UserDashboardComponent},
-    {path: 'settings', component: UserSettingsComponent}
+  { path: '', component: UserHomeComponent, canActivate: [AuthGuard], children: [
+    { path: '',   redirectTo: 'dashboard', pathMatch: 'full' },
+    { path: 'profile', component: ProfileComponent },
+    { path: 'attendance', component: UserAttendanceComponent },
+    { path: 'dashboard', component: UserDashboardComponent },
+    { path: 'settings', component: UserSettingsComponent }
   ]},
-  {path: 'welcome', component: WelcomeComponent},
-  {path: 'onboarding', component: OnboardingComponent},
-  {path: 'login', component: LoginComponent},
-  {path: '**', component: PageNotFoundComponent }
+  { path: 'welcome', component: WelcomeComponent },
+  { path: 'onboarding', component: OnboardingComponent },
+  { path: 'login', component: LoginComponent },
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({
