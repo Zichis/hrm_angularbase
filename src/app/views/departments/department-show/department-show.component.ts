@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { DepartmentService } from 'src/app/services/department.service';
-import { Department } from '../../models/department.model';
+import { Department } from '../../../models/department.model';
 
 @Component({
   selector: 'app-department-show',

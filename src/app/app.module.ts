@@ -26,12 +26,12 @@ import { UserAttendanceComponent } from './views/user-attendance/user-attendance
 import { UserSettingsComponent } from './views/user-settings/user-settings.component';
 import { AlertComponent } from './views/shared/alert/alert.component';
 import { EventComponent } from './views/event/event.component';
-import { DepartmentComponent } from './views/department/department.component';
+import { DepartmentComponent } from './views/departments/department/department.component';
 import { SideMenuComponent } from './views/shared/side-menu/side-menu.component';
 import { UserSideMenuComponent } from './views/shared/user-side-menu/user-side-menu.component';
-import { DepartmentCreateComponent } from './views/department-create/department-create.component';
-import { DepartmentShowComponent } from './views/department-show/department-show.component';
-import { DepartmentUpdateComponent } from './views/department-update/department-update.component';
+import { DepartmentCreateComponent } from './views/departments/department-create/department-create.component';
+import { DepartmentShowComponent } from './views/departments/department-show/department-show.component';
+import { DepartmentUpdateComponent } from './views/departments/department-update/department-update.component';
 
 FullCalendarModule.registerPlugins([
   dayGridPlugin
