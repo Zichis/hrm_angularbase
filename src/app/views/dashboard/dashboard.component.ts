@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { faBuffer } from '@fortawesome/free-brands-svg-icons';
+import { faBuilding, faUsers } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,6 +8,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
+  usersIcon = faUsers;
+  departmentIcon = faBuilding;
+  eventIcon = faBuffer;
 
   constructor() { }
 
