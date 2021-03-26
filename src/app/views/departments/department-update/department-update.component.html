@@ -11,7 +11,7 @@
         <p class="text-red-400">{{ nameError }}</p>
         <span *ngIf="name.invalid && name.touched" class="text-red-400">Wrong name input</span>
       </div>
-      <button type="submit" [disabled]="updateDepartmentForm.invalid" class="nline-block bg-blue-400 py-1 px-3 text-white hover:bg-blue-600 rounded" name="button">Add</button>&nbsp;
+      <button type="submit" [disabled]="updateDepartmentForm.invalid" class="nline-block bg-blue-400 py-1 px-3 text-white hover:bg-blue-600 rounded" name="button">Update</button>&nbsp;
       <a routerLink="/admin/departments" class="inline-block bg-gray-400 py-1 px-3 text-white hover:bg-gray-600 rounded">Cancel</a>
     </form>
   </div>
