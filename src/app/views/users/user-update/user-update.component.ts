@@ -23,6 +23,7 @@ export class UserUpdateComponent implements OnInit {
   lastNameError = '';
   departmentIdError = '';
   departments: Department[];
+  errorMessage: string;
 
   constructor(
     private usersService: UsersService,
@@ -64,6 +65,7 @@ export class UserUpdateComponent implements OnInit {
       localStorage.setItem('baseAppAlert', `User's account updated.`);
       this.router.navigate(['/admin/users']);
     }, (error) => {
+        this.errorMessage = error.error.message;
         this.firstNameError = error['error']['first_name'];
         this.lastNameError = error['error']['last_name'];
       }

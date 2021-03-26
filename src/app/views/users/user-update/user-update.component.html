@@ -2,6 +2,7 @@
   <h2 class="p-3 text-2xl md:px-5">Update user</h2>
   <hr>
   <div class="p-3 md:px-5">
+    <p *ngIf="errorMessage" class="px-2 py-5 text-red-500">{{ errorMessage }}</p>
     <form [formGroup]="updateForm" (ngSubmit)="onUpdate()">
       <!-- Personal section starts -->
       <h3 class="p-2 text-gray-400">Personal Information</h3>
