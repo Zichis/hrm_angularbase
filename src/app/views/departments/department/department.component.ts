@@ -21,6 +21,7 @@ export class DepartmentComponent implements OnInit {
   constructor(private departmentService: DepartmentService) { }
 
   ngOnInit(): void {
+    this.autoRemoveAlert();
     this.departmentService.getDepartments().subscribe((departments: Department[]) => {
       this.departments = departments;
     });

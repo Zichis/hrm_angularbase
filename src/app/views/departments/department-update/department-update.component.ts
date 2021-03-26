@@ -42,7 +42,7 @@ export class DepartmentUpdateComponent implements OnInit {
 
   onUpdate() {
     this.departmentService.updateDepartment(this.updateDepartmentForm.value, this.department.id).subscribe((data) => {
-      //localStorage.setItem('baseAppAlert', `User's account updated.`);
+      localStorage.setItem('baseAppAlert', `Department updated!`);
       this.router.navigate(['/admin/departments']);
     }, (error) => {
         // Handle errors!
