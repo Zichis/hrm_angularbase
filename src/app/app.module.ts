@@ -8,6 +8,7 @@ import { HomeComponent } from './views/home/home.component';
 import { WelcomeComponent } from './views/welcome/welcome.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FullCalendarModule } from '@fullcalendar/angular';
+import { ChartsModule } from 'ng2-charts';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import { from } from 'rxjs';
 import { LoginComponent } from './views/login/login.component';
@@ -62,7 +63,8 @@ FullCalendarModule.registerPlugins([
     FontAwesomeModule,
     ReactiveFormsModule,
     FormsModule,
-    FullCalendarModule
+    FullCalendarModule,
+    ChartsModule
   ],
   providers: [
     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },

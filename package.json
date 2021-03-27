@@ -27,6 +27,8 @@
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
     "@fullcalendar/angular": "^5.5.0",
     "@fullcalendar/daygrid": "^5.5.0",
+    "chart.js": "^2.9.4",
+    "ng2-charts": "^2.4.2",
     "postcss": "^7.0.35",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
