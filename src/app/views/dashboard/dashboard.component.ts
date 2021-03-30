@@ -3,7 +3,9 @@ import { faBuffer } from '@fortawesome/free-brands-svg-icons';
 import { faBuilding, faUsers } from '@fortawesome/free-solid-svg-icons';
 import { ChartDataSets, ChartOptions } from 'chart.js';
 import { Color, Label } from 'ng2-charts';
+import { Department } from 'src/app/models/department.model';
 import { User } from 'src/app/models/user.model';
+import { DepartmentService } from 'src/app/services/department.service';
 import { UsersService } from 'src/app/services/users.service';
 
 @Component({
@@ -16,6 +18,7 @@ export class DashboardComponent implements OnInit {
   departmentIcon = faBuilding;
   eventIcon = faBuffer;
   users: User[];
+  departments: Department[];
   numberOfUsers: number;
 
   lineChartData: ChartDataSets[] = [
@@ -39,11 +42,18 @@ export class DashboardComponent implements OnInit {
   lineChartPlugins = [];
   lineChartType = 'line';
 
-  constructor(private usersService: UsersService) { }
+  constructor(
+    private usersService: UsersService,
+    private departmentService: DepartmentService
+  ) { }
 
   ngOnInit(): void {
     this.usersService.numberOfUsers().subscribe((response: {data: {users: number}}) => {
       this.numberOfUsers = response.data.users;
+    });
+
+    this.departmentService.getDepartments().subscribe((departments: Department[]) => {
+      this.departments = departments;
     });
   }
 
